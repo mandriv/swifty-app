@@ -9,6 +9,7 @@ const envCheck = (envs) => {
       throw new Error(`Missing environment variable '${env}'!`);
     }
   }
+  console.log('Environment variables set...'); // eslint-disable-line
 };
 
 export default envCheck;
