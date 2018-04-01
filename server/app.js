@@ -7,7 +7,7 @@ import envCheck from './util/envCheck';
 import apiRouter from './util/apiRouter';
 // load environment variables
 const env = dotenv.config();
-if (env.error) {
+if (env.error && process.env.NODE_ENV !== 'production') {
   throw env.error;
 }
 try {
