@@ -2,10 +2,9 @@ const REQUIRED_ENVS = [
   'PORT',
 ];
 
-const envCheck = (envs) => {
-  const variables = Object.keys(envs);
+const envCheck = () => {
   for (const env of REQUIRED_ENVS) {
-    if (!variables.includes(env)) {
+    if (!process.env[env]) {
       throw new Error(`Missing environment variable '${env}'!`);
     }
   }

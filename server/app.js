@@ -11,7 +11,7 @@ if (env.error && process.env.NODE_ENV !== 'production') {
   throw env.error;
 }
 try {
-  envCheck(env.parsed);
+  envCheck();
 } catch (error) {
   console.error(error); // eslint-disable-line
   process.exit(1);
