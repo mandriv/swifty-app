@@ -4,6 +4,7 @@ import bodyParser from 'body-parser';
 import dotenv from 'dotenv';
 // modules
 import envCheck from './util/envCheck';
+import apiRouter from './util/apiRouter';
 // load environment variables
 const env = dotenv.config();
 if (env.error) {
@@ -23,7 +24,7 @@ const app = express();
 app.use(bodyParser.json());
 
 // routes
-// app.use('/', apiRouter);
+app.use('/', apiRouter);
 
 // start the app
 const port = process.env.PORT;
