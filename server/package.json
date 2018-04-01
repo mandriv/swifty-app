@@ -7,9 +7,8 @@
     "node": "9.x"
   },
   "scripts": {
-    "start": "babel-node app.js",
+    "start": "npm install && babel-node app.js",
     "dev": "nodemon app.js --exec babel-node",
-    "heroku-postbuild": "npm install",
     "precommit": "yarn lint-staged",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
