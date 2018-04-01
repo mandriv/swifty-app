@@ -1,8 +1,8 @@
 const REQUIRED_ENVS = [
-  'PORT'
+  'PORT',
 ];
 
-module.exports = (envs) => {
+const envCheck = (envs) => {
   const variables = Object.keys(envs);
   for (const env of REQUIRED_ENVS) {
     if (!variables.includes(env)) {
@@ -10,3 +10,5 @@ module.exports = (envs) => {
     }
   }
 };
+
+export default envCheck;

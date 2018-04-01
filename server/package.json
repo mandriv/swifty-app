@@ -7,22 +7,31 @@
     "node": "9.x"
   },
   "scripts": {
-    "start": "node app.js",
-    "dev": "nodemon app.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "precommit": "yarn lint-staged"
+    "start": "babel-node app.js",
+    "dev": "nodemon app.js --exec babel-node",
+    "heroku-postbuild": "npm install",
+    "precommit": "yarn lint-staged",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "lint-staged": {
-    "*.js": [ "yarn eslint --fix" ]
+    "*.js": [
+      "yarn eslint --fix"
+    ]
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "babel": "^6.23.0",
+    "babel-cli": "^6.26.0",
+    "babel-eslint": "^8.2.2",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-preset-env": "^1.6.1",
     "eslint": "^4.19.1",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.10.0",
     "husky": "^0.14.3",
-    "lint-staged": "^7.0.2"
+    "lint-staged": "^7.0.2",
+    "nodemon": "^1.17.3"
   },
   "dependencies": {
     "body-parser": "^1.18.2",
