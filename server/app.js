@@ -14,7 +14,7 @@ if (env.error) {
 try {
   envCheck(env.parsed);
 } catch (error) {
-  console.error(error); // eslint-disable-line
+  console.error(error);
   process.exit(1);
 }
 
