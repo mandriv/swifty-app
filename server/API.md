@@ -51,6 +51,9 @@ query params:
   * `?to` - retrieves data only to specific date
   * `?dist-unit` - "km" or "mi" - default "km"
   * `?speed-unit` - "km/h" or "mi/h" - default "km/h"
+* `GET /users/:id/geolocation` - returns geolocation data for user [any - admin, own - user, admin]
+  * `?from` - retrieves data only from specific date (format TBD)
+  * `?to` - retrieves data only to specific date
 * `GET /users/:id/todays-percentile` - returns users percentile for today's activity [any - admin, own - user, admin]
 * `POST /users` - creates new user [anonymous, user, admin]
 * `PUT /users/:id` - updates user's info [any - admin, own -user, admin]
