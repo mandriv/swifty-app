@@ -16,9 +16,9 @@ Either run the project placed in `/android` directly in Android Studio or:
 2. Open second tab and run `yarn ios`
 
 ### Useful resources
-* (React Native official guide and documentation)[https://facebook.github.io/react-native/]
-* (React navigation - navigation library for RN)[https://reactnavigation.org/]
-* (Redux tutorial - state management library)[https://redux.js.org/basics]
-* (List of vector icons we are using)[https://oblador.github.io/react-native-vector-icons/]
-* (Linear gradient component)[https://github.com/react-native-community/react-native-linear-gradient]
-* (SVG charts)[https://github.com/JesperLekland/react-native-svg-charts]
+* [React Native official guide and documentation](https://facebook.github.io/react-native/)
+* [React navigation - navigation library for RN](https://reactnavigation.org/)
+* [Redux tutorial - state management library](https://redux.js.org/basics)
+* [List of vector icons we are using](https://oblador.github.io/react-native-vector-icons/)
+* [Linear gradient component](https://github.com/react-native-community/react-native-linear-gradient)
+* [SVG charts](https://github.com/JesperLekland/react-native-svg-charts)
