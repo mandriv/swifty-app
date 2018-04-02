@@ -3,7 +3,7 @@ Client is React Native app.
 
 ### Set up
 0. Make sure you have npm and yarn installed. You also need Xcode or Android Studio for ios / android emulators.
-1. Install the dependencies `yarn install`
+1. While in `/app` directory, install the dependencies - `yarn install`
 
 #### Android development
 Either run the project placed in `/android` directly in Android Studio or:
