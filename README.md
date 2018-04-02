@@ -9,4 +9,4 @@ App itself is written in React Native. Check client-specific readme file here.
 Server runs as node instance on heroku. It uses MySQL as data source through sequilize ORM. Check server-specific readme file here.
 
 ### Contributing
-Check contributing guide.
+Check [contributing guide](https://github.com/mandriv/swifty-app/blob/master/CONTRIBUTING.md).
