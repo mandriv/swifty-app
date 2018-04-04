@@ -1,12 +1,29 @@
-# API impl - Python
+# Swifty Server
 
-Api implemented with Python 3.6 - flask.
+API implemented with Python 3.6 - flask.
 
-## Running
+## Setup
 
-* CD into this directory.
-* ./venv/bin/python3.6 start.py
+Install modules
+
+```
+python setup.py install
+```
+
+**Environment variables**
+
+JWT_SECRET_KEY
+
+
+## Run
+
+
+```
+python app.py
+```
 
 Starts the api server on localhost:5000
 
 GL & HF
+
+
