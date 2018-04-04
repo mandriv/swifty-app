@@ -1,4 +1,5 @@
 from server import app
+from server.User import User
 from flask import jsonify, request
 from flask_jwt_extended import create_access_token
 
@@ -7,16 +8,7 @@ def create_account():
     if not request.is_json:
         return jsonify({"msg": "Request must be in JSON"}), 400
 
-    # Add  input validation
-
-    email = "email@mail.com"
-    password = "pass"
-    first_name = "person"
-    last_name = "nosrep"
-
-    # Create account
-
-    access_token = create_access_token(identity=email)
+    access_token = create_access_token(identity="todo")
     return jsonify(access_token=access_token), 200
 
 
@@ -25,9 +17,11 @@ def login():
     if not request.is_json:
         return jsonify({"msg": "Request must be in JSON"}), 400
 
-    email = "email@mail.com"
-    password = "pass"
+    user = User.query.filter_by(username=request.json['username']).filter_by(passw=request.json['password']).first()
 
-    access_token = create_access_token(identity=email)
+    if (user == None):
+        return jsonify({"msg": "User not exist"}), 400
+
+    access_token = create_access_token(identity=user)
     return jsonify(access_token=access_token), 200
 
