@@ -12,7 +12,9 @@ python setup.py install
 
 **Environment variables**
 
-JWT_SECRET_KEY
+Set the environment variables
+
+`JWT_SECRET_KEY` - JWT secret key
 
 
 ## Run
