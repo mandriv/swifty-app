@@ -1,5 +1,5 @@
 from app import app
-from authController import *
+from auth_token import *
 
 if __name__ == '__main__':
     app.run()
