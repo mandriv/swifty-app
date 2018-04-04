@@ -1,15 +1,29 @@
-# Server
-Server runs as express.js app on node instance. We are using ES6/7/8 syntax through babel transpiler.
-Server runs on heroku instance. [Here's the link.](https://cs317-swifty.herokuapp.com/)
+# Swifty Server
 
-### Set up
-0. Make sure you have npm, node and yarn installed.
-1. When in `/server` directory, install all the dependencies - `yarn install`
-2. Create `.env` file with all the needed environmental variables
+API implemented with Python 3.6 - flask.
 
-### Run in development
-1. `yarn dev` - this should start nodemon server which will automatically restart on any change
-2. I suggest using tools like [Postman](https://www.getpostman.com/) for API testing
+## Setup
 
-### API
-Proposed API spec can be found [here.](https://github.com/mandriv/swifty-app/blob/master/server/API.md)
+Install modules
+
+```
+python setup.py install
+```
+
+**Environment variables**
+
+JWT_SECRET_KEY
+
+
+## Run
+
+
+```
+python app.py
+```
+
+Starts the api server on localhost:5000
+
+GL & HF
+
+
