@@ -1,14 +1,27 @@
 from server import app, db
 from server.User import User
 from flask import jsonify, request
+from server.User import User
 from sqlalchemy.exc import IntegrityError
 from flask_jwt_extended import jwt_required, get_jwt_identity
 
 @app.route('/api/user/<int:userID>', methods=['GET'])
 @jwt_required
 def get_user(userID):
-    current_user = get_jwt_identity()
-    return 'User %d %s ' % (userID, current_user)
+    current_user_id = get_jwt_identity()
+    current_user = User.query.get(current_user_id)
+
+    if (current_user.role == 0
+            and not current_user.id == userID):
+        return jsonify(msg="only admin can see other users"), 400
+
+    user = User.query.get(userID)
+    if (user == None):
+        return jsonify(msg="User with this ID does not exist"), 400
+
+    return jsonify(user=user.to_json())
+
+
 
 @app.route('/api/users', methods=['POST'])
 def create_user():
