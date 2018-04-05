@@ -56,6 +56,40 @@ def get_user(userID):
 
     return jsonify(user=user.to_json())
 
+@app.route('/api/users/<int:user_id>', methods=['PUT'])
+@jwt_required
+def update_user(user_id):
+    current_user = User.query.get(get_jwt_identity())
+
+    if (current_user.role == 0
+            and not current_user.id == user_id):
+        return jsonify(msg="only admin can update other users"), 400
+
+    user_to_update = User.query.get(user_id)
+    if user_to_update == None:
+        return jsonify(msg="user not exists"), 400
+
+    new_user_data = request.get_json()
+
+    if 'password' in new_user_data:
+        user_to_update.set_hash_password(new_user_data['password'])
+
+    if 'bio' in new_user_data:
+        user_to_update.bio = new_user_data['bio']
+
+    if 'email' in new_user_data:
+        user_to_update.email = new_user_data['email']
+
+    if 'username' in new_user_data:
+        user_to_update.username = new_user_data['username']
+
+    try:
+        db.session.commit()
+    except IntegrityError:
+        return jsonify(msg="username or email already in use"), 400
+
+    return jsonify(msg="User data updated")
+
 
 
 @app.route('/api/users', methods=['POST'])
