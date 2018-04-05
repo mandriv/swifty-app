@@ -5,7 +5,25 @@ from server.User import User
 from sqlalchemy.exc import IntegrityError
 from flask_jwt_extended import jwt_required, get_jwt_identity
 
-@app.route('/api/user/<int:userID>', methods=['GET'])
+@app.route('/api/users', methods=['GET'])
+@jwt_required
+def get_all_user():
+    current_user_id = get_jwt_identity()
+    current_user = User.query.get(current_user_id)
+
+    if current_user.role == 0:
+        return jsonify(msg="You are not an admin bro"), 400
+
+    users = User.query.all()
+    json_user_list = list()
+    for user in users:
+        json_user_list.append(user.to_json())
+
+    return jsonify(users=json_user_list)
+
+
+
+@app.route('/api/users/<int:userID>', methods=['GET'])
 @jwt_required
 def get_user(userID):
     current_user_id = get_jwt_identity()
