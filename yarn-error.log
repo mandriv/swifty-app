@@ -1,0 +1,47 @@
+Arguments: 
+  /usr/local/bin/node /usr/local/bin/yarn install
+
+PATH: 
+  /anaconda3/bin:/Users/Martin/miniconda3/bin:/Users/Martin/.rvm/gems/ruby-2.4.0/bin:/Users/Martin/.rvm/gems/ruby-2.4.0@global/bin:/Users/Martin/.rvm/rubies/ruby-2.4.0/bin:/opt/local/bin:/opt/local/sbin:~/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/TeX/texbin:/Applications/Postgres.app/Contents/Versions/latest/bin:/anaconda3/bin:/Users/Martin/miniconda3/bin:/Users/Martin/.rvm/gems/ruby-2.4.0/bin:/Users/Martin/.rvm/gems/ruby-2.4.0@global/bin:/Users/Martin/.rvm/rubies/ruby-2.4.0/bin:/opt/local/bin:/opt/local/sbin:~/bin:/Users/Martin/Library/Android/sdk/platform-tools:/Users/Martin/.vimpkg/bin:/Users/Martin/.rvm/bin:/Users/Martin/Library/Android/sdk/tools:/Users/Martin/Library/Android/sdk/platform-tools:/Users/Martin/.vimpkg/bin
+
+Yarn version: 
+  1.5.1
+
+Node version: 
+  6.10.3
+
+Platform: 
+  darwin x64
+
+npm manifest: 
+  {
+    "name": "swifty-server-heroku",
+    "version": "1.0.0",
+    "description": "",
+    "engines": {
+      "node": "9.x"
+    },
+    "scripts": {
+      "start": "cd server/ && npm start",
+      "heroku-prebuild": "cd server/ && npm install"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
+
+Trace: 
+  Error: Found incompatible module
+      at MessageError.Error (native)
+      at new MessageError (/usr/local/lib/node_modules/yarn/lib/cli.js:186:110)
+      at Object.checkOne (/usr/local/lib/node_modules/yarn/lib/cli.js:62444:11)
+      at /usr/local/lib/node_modules/yarn/lib/cli.js:22773:75
+      at next (native)
+      at step (/usr/local/lib/node_modules/yarn/lib/cli.js:98:30)
+      at /usr/local/lib/node_modules/yarn/lib/cli.js:116:14
+      at Promise.F (/usr/local/lib/node_modules/yarn/lib/cli.js:23451:28)
+      at /usr/local/lib/node_modules/yarn/lib/cli.js:95:12
+      at /usr/local/lib/node_modules/yarn/lib/cli.js:22777:27
