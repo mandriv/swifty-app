@@ -19,8 +19,6 @@ class User(db.Model):
         self.passw = self.__hash_password(password)
 
     def check_password(self, password):
-        print(self.passw)
-        print(self.__hash_password(password))
         return self.passw == self.__hash_password(password)
 
     def __hash_password(self, password):
