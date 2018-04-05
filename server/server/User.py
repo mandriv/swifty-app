@@ -12,6 +12,9 @@ class User(db.Model):
     def __repr__(self):
         return '<User %r>' % self.username
 
+    def to_json(self):
+        return {c.name: getattr(self, c.name) for c in self.__table__.columns}
+
     def set_hash_password(self, password):
         self.passw = self.__hash_password(password)
 
