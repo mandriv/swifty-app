@@ -1,5 +1,5 @@
 from server import app, db
-from server.User import User
+from server.util import json_required
 from flask import jsonify, request
 from server.User import User
 from sqlalchemy.exc import IntegrityError
@@ -57,6 +57,7 @@ def get_user(userID):
     return jsonify(user=user.to_json())
 
 @app.route('/api/users/<int:user_id>', methods=['PUT'])
+@json_required
 @jwt_required
 def update_user(user_id):
     current_user = User.query.get(get_jwt_identity())
@@ -93,9 +94,8 @@ def update_user(user_id):
 
 
 @app.route('/api/users', methods=['POST'])
+@json_required
 def create_user():
-    if not request.is_json:
-        return jsonify(msg="Request must be in JSON"), 400
 
     user_data = request.get_json()
 

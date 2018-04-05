@@ -1,8 +1,8 @@
 import os
-from flask_sqlalchemy import SQLAlchemy
+
 from flask import Flask
 from flask_jwt_extended import JWTManager
-
+from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 app.config.from_object(__name__)
