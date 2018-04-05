@@ -21,6 +21,23 @@ def get_all_user():
 
     return jsonify(users=json_user_list)
 
+@app.route('/api/users/<int:user_id>', methods=['DELETE'])
+@jwt_required
+def delete_user(user_id):
+    current_user = User.query.get(get_jwt_identity())
+
+    if not current_user.role == 1:
+        return jsonify(msg="you are not an admin"), 400
+
+    user_to_delete = User.query.get(user_id)
+
+    if user_to_delete == None:
+        return jsonify(msg="User does not exist"), 400
+
+    db.session.delete(user_to_delete)
+    db.session.commit()
+
+    return jsonify(msg="user deleted")
 
 
 @app.route('/api/users/<int:userID>', methods=['GET'])
