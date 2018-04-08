@@ -7,7 +7,7 @@ export default class Splash extends React.PureComponent {
   render() {
     return (
       <View>
-        <Text>SplashScreen</Text>
+        <Text>Splash Screen</Text>
       </View>
     );
   }
