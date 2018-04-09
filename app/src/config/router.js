@@ -5,30 +5,37 @@ import StartScreen from '../screens/Start';
 import RegisterScreen from '../screens/Register';
 import LoginScreen from '../screens/Login';
 import TodayScreen from '../screens/Today';
+// other
+import withRedirect from '../screens/Splash/withRedirect';
 
-export const AuthStack = StackNavigator({
-  Start: {
-    screen: StartScreen,
-    navigationOptions: {
-      header: false,
-      gesturesEnabled: false,
+export const AuthStack = StackNavigator(
+  {
+    Start: {
+      screen: StartScreen,
+      navigationOptions: {
+        header: false,
+        gesturesEnabled: false,
+      },
+    },
+    Register: {
+      screen: RegisterScreen,
+      navigationOptions: {
+        header: false,
+        gesturesEnabled: true,
+      },
+    },
+    Login: {
+      screen: LoginScreen,
+      navigationOptions: {
+        header: false,
+        gesturesEnabled: false,
+      },
     },
   },
-  Register: {
-    screen: RegisterScreen,
-    navigationOptions: {
-      header: false,
-      gesturesEnabled: true,
-    },
+  {
+    initialRouteName: 'Start',
   },
-  Login: {
-    screen: LoginScreen,
-    navigationOptions: {
-      header: false,
-      gesturesEnabled: false,
-    },
-  },
-});
+);
 
 export const AppDrawer = DrawerNavigator({
   Today: {
@@ -38,9 +45,7 @@ export const AppDrawer = DrawerNavigator({
 
 export const RootNavigator = SwitchNavigator(
   {
-    Splash: {
-      screen: SplashScreen,
-    },
+    Splash: withRedirect(SplashScreen),
     Auth: AuthStack,
     App: AppDrawer,
   },
