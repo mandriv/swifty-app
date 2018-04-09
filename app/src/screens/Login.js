@@ -2,22 +2,22 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { View, Text } from 'react-native';
 
-export default class Splash extends React.PureComponent {
+export default class Login extends React.PureComponent {
 
   render() {
     return (
       <View>
-        <Text>SplashScreen</Text>
+        <Text>Login screen</Text>
       </View>
     );
   }
 
 }
 
-Splash.propTypes = {
+Login.propTypes = {
 
 };
 
-Splash.defaultProps = {
+Login.defaultProps = {
 
 };

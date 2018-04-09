@@ -1,23 +1,55 @@
-import { StackNavigator, NavigationActions } from 'react-navigation';
+import { SwitchNavigator, StackNavigator, DrawerNavigator } from 'react-navigation';
 // screens
 import SplashScreen from '../screens/Splash';
+import StartScreen from '../screens/Start';
+import RegisterScreen from '../screens/Register';
+import LoginScreen from '../screens/Login';
+import TodayScreen from '../screens/Today';
+// other
+import withRedirect from '../screens/Splash/withRedirect';
 
-// resets stack
-export const resetAction = route => NavigationActions.reset({
-  index: 0,
-  actions: [NavigationActions.navigate({ routeName: route })],
-});
-
-// main navigator
-export const RootNavigator = StackNavigator({
-  Splash: {
-    screen: SplashScreen,
-    navigationOptions: {
-      header: false,
-      title: 'Splash',
-      gesturesEnabled: false,
+export const AuthStack = StackNavigator(
+  {
+    Start: {
+      screen: StartScreen,
+      navigationOptions: {
+        header: false,
+        gesturesEnabled: false,
+      },
+    },
+    Register: {
+      screen: RegisterScreen,
+      navigationOptions: {
+        header: false,
+        gesturesEnabled: true,
+      },
+    },
+    Login: {
+      screen: LoginScreen,
+      navigationOptions: {
+        header: false,
+        gesturesEnabled: false,
+      },
     },
   },
-}, {
-  initialRouteName: 'Splash',
+  {
+    initialRouteName: 'Start',
+  },
+);
+
+export const AppDrawer = DrawerNavigator({
+  Today: {
+    screen: TodayScreen,
+  },
 });
+
+export const RootNavigator = SwitchNavigator(
+  {
+    Splash: withRedirect(SplashScreen),
+    Auth: AuthStack,
+    App: AppDrawer,
+  },
+  {
+    initialRouteName: 'Splash',
+  },
+);
