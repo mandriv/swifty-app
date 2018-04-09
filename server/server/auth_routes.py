@@ -19,7 +19,7 @@ def login():
     login_details = request.get_json()
 
     if (not 'username' in login_details
-            or 'password' in login_details):
+            or not 'password' in login_details):
         return jsonify(msg="username and password field required"), 400
 
     user = User.query.filter_by(username=request.json['username']).first()
