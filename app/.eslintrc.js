@@ -24,7 +24,8 @@ module.exports = {
       "react/jsx-filename-extension": 0,
       "no-use-before-define": 0,
       "react/prefer-stateless-function": 0,
-      "no-console": ["error", { allow: ["warn", "error"] }]
+      "no-console": ["error", { allow: ["warn", "error"] }],
+      "global-require": 0,
     },
     "globals": {
       "fetch": false,
