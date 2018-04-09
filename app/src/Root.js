@@ -1,7 +1,10 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { StatusBar, View, StyleSheet } from 'react-native';
+import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react'
+import Splash from './screens/Splash';
 
+import { store, persistor } from './redux/store';
 import { RootNavigator } from './config/router';
 
 /*
@@ -12,12 +15,16 @@ export default class Root extends React.PureComponent {
 
   render() {
     return (
-      <View style={styles.container}>
-        <StatusBar
-          barStyle="light-content"
-        />
-        <RootNavigator />
-      </View>
+      <Provider store={store}>
+        <PersistGate loading={<Splash />} persistor={persistor}>
+          <View style={styles.container}>
+            <StatusBar
+              barStyle="light-content"
+            />
+            <RootNavigator />
+          </View>
+        </PersistGate>
+      </Provider>
     );
   }
 
