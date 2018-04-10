@@ -17,8 +17,6 @@ export default class Button extends Component {
     if (fluid) btnStyles.push(styles.fluid);
     // Text styles
     const txtStyles = [styles.text];
-    if (type === 'primary') txtStyles.push(styles.textPrimary);
-
     return (
       <TouchableOpacity style={btnStyles} onPress={this.props.onPress}>
         <Text style={txtStyles}>
@@ -32,7 +30,7 @@ export default class Button extends Component {
 
 Button.propTypes = {
   children: PropTypes.string.isRequired,
-  type: PropTypes.oneOf(['primary']),
+  type: PropTypes.oneOf(['primary', 'secondary']),
   fluid: PropTypes.bool,
   onPress: PropTypes.func,
 };

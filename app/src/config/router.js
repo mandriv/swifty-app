@@ -3,7 +3,7 @@ import { SwitchNavigator, StackNavigator, DrawerNavigator } from 'react-navigati
 import SplashScreen from '../screens/Splash';
 import StartScreen from '../screens/Start';
 import RegisterScreen from '../screens/Register';
-import LoginScreen from '../screens/Login';
+import SignInScreen from '../screens/SignIn';
 import TodayScreen from '../screens/Today';
 // other
 import withRedirect from '../screens/Splash/withRedirect';
@@ -14,21 +14,18 @@ export const AuthStack = StackNavigator(
       screen: StartScreen,
       navigationOptions: {
         header: false,
-        gesturesEnabled: false,
+      },
+    },
+    Login: {
+      screen: SignInScreen,
+      navigationOptions: {
+        header: false,
       },
     },
     Register: {
       screen: RegisterScreen,
       navigationOptions: {
         header: false,
-        gesturesEnabled: true,
-      },
-    },
-    Login: {
-      screen: LoginScreen,
-      navigationOptions: {
-        header: false,
-        gesturesEnabled: false,
       },
     },
   },

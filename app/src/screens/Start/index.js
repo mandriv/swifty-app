@@ -28,7 +28,7 @@ export default class Start extends React.PureComponent {
         </View>
         <View style={[styles.container, styles.buttons]}>
           <View style={styles.buttonWrapper}>
-            <Button onPress={this.goToLogin}>Sign In</Button>
+            <Button onPress={this.goToLogin} type="secondary">Sign In</Button>
           </View>
           <View style={styles.buttonWrapper}>
             <Button onPress={this.goToRegister}>Register</Button>
