@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { offWhite, secondary, black } from '../../config/colours';
+import { offWhite, primaryLight, secondary, black } from '../../config/colours';
 import { primary } from '../../config/fonts';
 
 export default StyleSheet.create({
@@ -19,14 +19,15 @@ export default StyleSheet.create({
     flex: 1,
   },
   primary: {
+    backgroundColor: primaryLight,
+  },
+  secondary: {
     backgroundColor: secondary,
   },
   text: {
     fontFamily: primary(),
     fontSize: 20,
     textAlign: 'center',
-  },
-  textPrimary: {
     color: offWhite,
   },
 });
