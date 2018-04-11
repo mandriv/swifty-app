@@ -8,4 +8,4 @@ YellowBox.ignoreWarnings([
   'Warning: componentWillReceiveProps is deprecated',
 ]);
 
-AppRegistry.registerComponent('app', () => App);
+AppRegistry.registerComponent('Swifty', () => App);
