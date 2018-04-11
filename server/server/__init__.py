@@ -11,10 +11,6 @@ app.config.from_object(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URI')
 app.config['SECRET_KEY'] = 'evenmoresecretthanthis'
 
-# db
-# app.config['MONGO_DBNAME'] = 'swifty'
-# mongo = PyMongo(app, config_prefix='MONGO')
-
 db = SQLAlchemy(app)
 
 # jwt
