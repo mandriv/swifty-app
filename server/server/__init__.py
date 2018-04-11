@@ -8,8 +8,7 @@ app = Flask(__name__)
 app.config.from_object(__name__)
 
 # db
-password = os.getenv('SWIFTY_DB_PASS')
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:%s@localhost/swifty' % password
+app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URI')
 app.config['SECRET_KEY'] = 'evenmoresecretthanthis'
 
 # db
