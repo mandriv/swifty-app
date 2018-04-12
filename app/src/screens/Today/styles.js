@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         fontSize: 28,
         marginTop: 40,
-        marginRight: 130,
+        marginRight: 80,
         color: 'white',
         marginBottom: 50,
     },
@@ -32,12 +32,19 @@ const styles = StyleSheet.create({
         fontWeight: 'bold'
     },
     circle: {
-        width: 220,
-        height: 220,
-        borderRadius: 220 / 2,
-        borderColor: '#4C64FF',
-        borderWidth: 5,
+        width: 200,
+        height: 200,
+        borderRadius: 200 / 2,
+        justifyContent:'center',
+        alignItems:'center',
+      
     },
+      innerCircle:{
+    width: 190,
+        height: 190,
+          borderRadius: 210 / 2,
+          backgroundColor:'#1985CF',
+},
     stats: {
         color: 'white',
         textAlign: 'center',
@@ -46,19 +53,19 @@ const styles = StyleSheet.create({
     progress: {
         flexDirection: 'row',
         height: 70,
-        margin: 40
+        margin: 30
     },
     progressTab: {
         margin: 10,
-        textAlign: 'center'
+        alignItems: 'center'
     },
     chart: {
 
     },
-    icon: {
+    iconCircle: {
         textAlign: 'center',
         fontSize: 16,
-        color: 'white'
+        color: 'white',
     },
     footer: {
         position: 'absolute',
@@ -74,17 +81,19 @@ const styles = StyleSheet.create({
     data: {
         color: 'gold',
         textAlign: 'center',
-        fontSize: 20,
+        fontSize: 17,
         fontWeight: 'bold'
     },
     text: {
         color: 'white',
         textAlign: 'center',
-        fontWeight: 'bold',
         fontSize: 16
     },
     bottomTab: {
         width: 100
+    },
+    transperent:{
+      color:'transparent'  
     },
     top: {
         flexDirection: 'row',

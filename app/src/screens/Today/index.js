@@ -7,6 +7,7 @@ import Icon2 from 'react-native-vector-icons/Ionicons';
 import LinearGradient from 'react-native-linear-gradient';
 import styles from './styles';
 
+
 export default class Today extends React.PureComponent {
 
   render() {
@@ -17,33 +18,35 @@ export default class Today extends React.PureComponent {
         <View style={styles.icon}>
             <Icon1 style={styles.iconBar} name="bars" size={30} color="#FDFFFF"/>
         </View>
-        <Text style = {styles.signIn}>Settings</Text>
+        <Text style = {styles.signIn}>Today's activity</Text>
         </View>
-		<View style={styles.circle}>
-			<View style={styles.stats}>
-				<Text style={styles.activityTitle}>Today's Steps</Text>
+		<LinearGradient colors={['#FFB97A', '#FFB97A', '#00A7E1']}  style={styles.circle}>
+        <LinearGradient  colors={['#1788D0', '#2378C8', '#2A6EC2']} style = {styles.innerCircle}>
+			<View>
+				<Text style={styles.activityTitle}>Today's Steps  </Text>
 				<Text style={styles.activityText}>7170</Text>
 			</View>
 
-			<View style={styles.stats}>
+			<View >
 				<Text style={styles.stats}>
-					<Icon1 name="road" size={20}/>
-					<Text style={styles.icon}>1.2km</Text>
-					<Icon1 style={styles.icon} name="fire" size={20}/>
-					<Text style={styles.icon}>530kcal</Text>
+					<Icon1 style={styles.iconCircle} name="road" size={20}/>
+					<Text style={styles.iconCircle}>1.2km </Text>
+                    <Text style = {styles.transperent}>a </Text>
+					<Icon1 style={styles.iconCircle, {paddingLeft:10}} name="fire" size={20}/>
+					<Text style={styles.iconCircle}>530kcal</Text>
 				</Text>
 
 				<Text style={styles.stats}>
-					<Icon style={styles.icon} name="speedometer" size={20}/>
-					<Text style={styles.icon}>8.3km/h</Text>
+					<Icon style={styles.iconCircle} name="speedometer" size={20}/>
+					<Text style={styles.iconCircle}>8.3km/h</Text>
 				</Text>
 			</View>
-		</View>
+        </LinearGradient>
+		</LinearGradient>
 
 		<View style={styles.progress}>
 	        <View style ={styles.progressTab}>
-	          <Text style={styles.data}>+31</Text>
-	          <Text style={styles.text}>steps</Text>
+	          <Text style={styles.data}>+31 steps ꜛ</Text>
 	          <Text style ={styles.text}>from yesterday</Text>
 	        </View>
 	        <View style ={styles.progressTab}>
@@ -53,27 +56,26 @@ export default class Today extends React.PureComponent {
 	          <Text style ={styles.text}>active users</Text>
 	        </View>
 	        <View style ={styles.progressTab}>
-	          <Text style={styles.data}>10000</Text>
-	          <Text style={styles.text}>steps</Text>
+	          <Text style={styles.data}>10 000 steps</Text>
 	          <Text style={styles.text}>today's goal</Text>
 	        </View>
 		</View>
 			      
 		<View style={styles.footer}>
 			<TouchableOpacity style={styles.bottomTab}>
-			<Text style={styles.icon}><Icon2 name="md-walk" size={25}/></Text>
+			<Text style={styles.iconCircle}><Icon2 name="md-walk" size={25}/></Text>
 			</TouchableOpacity>
 
 			<TouchableOpacity style={styles.bottomTab}>
-			<Text style={styles.icon}><Icon1 name="road" size={25}/></Text>
+			<Text style={styles.iconCircle}><Icon1 name="road" size={25}/></Text>
 			</TouchableOpacity>
 
 			<TouchableOpacity style={styles.bottomTab}>
-			<Text style={styles.icon}><Icon1 name="fire" size={25}/></Text>
+			<Text style={styles.iconCircle}><Icon1 name="fire" size={25}/></Text>
 			</TouchableOpacity>
 
 			<TouchableOpacity style={styles.bottomTab}>
-			<Text style={styles.icon}><Icon name="speedometer" size={25}/></Text>
+			<Text style={styles.iconCircle}><Icon name="speedometer" size={25}/></Text>
 			</TouchableOpacity>
 		</View>
 	</LinearGradient>
