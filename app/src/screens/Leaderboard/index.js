@@ -25,8 +25,9 @@ export default class Leaderboard extends React.Component {
         </View>
         <Text style = {styles.signIn}>Leaderboard</Text>
         </View>
-
-	    	<ScrollView>
+            
+            
+	    	<ScrollView contentContainerStyle={{flexGrow:1}}>
 	    	   <FlatList
 			        data={[
 			            {rank: 1, name: 'Devin', steps: '8574', distance: '57', calories: '3453', speed: '5'},
@@ -36,49 +37,52 @@ export default class Leaderboard extends React.Component {
 			            {rank: 5, name: 'John', steps: '2452', distance: '32', calories: '1456', speed: '6'},
 			            {rank: 6, name: 'Jillian', steps: '9786', distance: '65', calories: '1234', speed: '5'},
 			            {rank: 7, name: 'Jimmy', steps: '765', distance: '67', calories: '1234', speed: '4'},
-			            {rank: 8, name: 'Julie', steps: '3433', distance: '13', calories: '1765', speed: '3'}
+			            {rank: 8, name: 'Julie', steps: '3433', distance: '13', calories: '1765', speed: '3'},
 			        ]}
 
 			        renderItem={({item}) => 
-			          <TouchableOpacity style={styles.buttonContainer} key={item.rank}>
+			          <View style={styles.buttonContainer} key={item.rank}>
 			          		<View key={Math.random().toString()}>
-				          		<View>
-					          		<Image source={require('./userimage.jpg')} style={styles.imageCircle}/>
-					          	</View>
-					          	<View style={styles.usernameContainer}>
+				          		<View style={styles.user}>
+                                <View style={styles.usernameContainer}>
 									<Text style={styles.username}>{item.rank}. {item.name}</Text>
-					          	</View>	
+					          	</View>
+					          		<Image source={require('./userimage.jpg')} style={styles.imageCircle}/>
+					          	
 				          		<View>
 				          			<Text style={styles.result}>Steps:{item.steps}</Text>
 				          			<Text style={styles.result}>Distance:{item.distance}</Text>
 				          			<Text style={styles.result}>Calories:{item.calories}</Text>
 				          		</View>
+                                    </View>	
 			          		</View>
-				      </TouchableOpacity>
+				      </View>
 				  }
 				  keyExtractor={(item, index) => index.toString()}
 				  />
+                  //DONT REMOVE
+                  <View style={styles.buttonContainer}/>
 	    	</ScrollView>
-
+            
 	      <View style={styles.footer}>
 		      <TouchableOpacity style={styles.tab}>
 		      	  <Text style={styles.category}>STEPS</Text>
-		      	  <Text style={styles.icon}><Icon name="counter" size={25}/></Text>
+		      	  <Text style={styles.iconFooter}><Icon name="counter" size={25}/></Text>
 		      </TouchableOpacity>
 		        
 		        <TouchableOpacity style={styles.tab}>
 		          <Text style={styles.category}>DISTANCE</Text>
-		          <Text style={styles.icon}><Icon name="vector-radius" size={25}/></Text>
+		          <Text style={styles.iconFooter}><Icon name="vector-radius" size={25}/></Text>
 		        </TouchableOpacity>
 
 		        <TouchableOpacity style={styles.tab}>
 		          <Text style={styles.category}>CALORIES</Text>
-		          <Text style={styles.icon}><IOSIcon name="md-heart" size={25}/></Text>
+		          <Text style={styles.iconFooter}><IOSIcon name="md-heart" size={25}/></Text>
 		        </TouchableOpacity>
 
 		        <TouchableOpacity style={styles.tab}>
 		          <Text style={styles.category}>SPEED</Text>
-		          <Text style={styles.icon}><Icon1 name="directions-run" size={25}/></Text>
+		          <Text style={styles.iconFooter}><Icon1 name="directions-run" size={25}/></Text>
 		        </TouchableOpacity>
 	      </View>
 

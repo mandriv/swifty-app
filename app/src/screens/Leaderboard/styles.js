@@ -12,9 +12,9 @@ const styles = StyleSheet.create({
     signIn: {
         textAlign: 'center',
         fontWeight: 'bold',
-        fontSize: 28,
-        marginTop: 40,
-        marginRight: 130,
+        fontSize: 25,
+        marginTop: 42,
+        marginRight: 100,
         color: 'white',
         marginBottom: 50,
     },
@@ -22,28 +22,29 @@ const styles = StyleSheet.create({
         height: 60,
         backgroundColor: 'rgba(252, 252, 252, 0.2)',
         borderRadius: 5,
-        borderWidth: 0.1,
-        borderColor: '#DADADA',
         width: 320,
-        marginBottom: 20,
+        marginBottom: 15,
     },
     usernameContainer: {
-        width: 150,
-        marginBottom: 15
+        marginHorizontal:10,
+        width: 130,
     },
     username: {
         fontWeight: 'bold',
         fontSize: 22,
         color: 'white'
     },
+    scroll:{
+    
+},
     imageCircle: {
         width: 40,
         height: 40,
         borderRadius: 40 / 2,
         borderColor: 'white',
         borderWidth: 1,
-        margin: 10,
-        flex: 1
+        marginTop:10,
+        marginRight:20,
     },
     result: {
         color: 'white',
@@ -56,19 +57,25 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         fontSize: 14
     },
-    icon: {
+    iconFooter: {
         color: 'white',
         textAlign: 'center'
     },
     footer: {
+        flex:1,
         position: 'absolute',
         bottom: 0,
         flexDirection: 'row',
         padding: 10,
         marginLeft: 15,
         marginRight: 15,
+        marginTop:10,
         backgroundColor: '#1e90ff'
     },
+    user:{
+    flex:1,
+    flexDirection: 'row',
+},
     tab: {
         width: 100
     },
@@ -82,7 +89,7 @@ const styles = StyleSheet.create({
     },
     iconBar: {
         marginLeft: 10,
-    }
+    },
 });
 
 

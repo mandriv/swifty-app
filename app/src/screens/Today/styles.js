@@ -12,11 +12,11 @@ const styles = StyleSheet.create({
     signIn: {
         textAlign: 'center',
         fontWeight: 'bold',
-        fontSize: 28,
-        marginTop: 40,
-        marginRight: 80,
+        fontSize: 25,
+        marginTop: 45,
+        marginRight: 90,
         color: 'white',
-        marginBottom: 50,
+        marginBottom: 40,
     },
     activityTitle: {
         paddingTop: 30,

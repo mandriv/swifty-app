@@ -13,7 +13,7 @@ export default class Start extends React.PureComponent {
 
   goToRegister = () => this.props.navigation.navigate('Register');
     
-    goToToday = () => this.props.navigation.navigate('Today');
+    goToLeaderboard = () => this.props.navigation.navigate('Leaderboard');
 
   render() {
     return (
@@ -36,7 +36,7 @@ export default class Start extends React.PureComponent {
             <Button onPress={this.goToRegister}>Register</Button>
           </View>
         <View style={styles.buttonWrapper}>
-            <Button onPress={this.goToToday}>Today</Button>
+            <Button onPress={this.goToLeaderboard}>Leaderboard</Button>
           </View>
         </View>
       </ImageBlurBackground>

@@ -30,8 +30,8 @@ export const AuthStack = StackNavigator(
         header: false,
       },
     },
-      Today: {
-      screen: TodayScreen,
+      Leaderboard: {
+      screen: LeaderboardScreen,
       navigationOptions: {
         header: false,
       },
