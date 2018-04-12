@@ -1,7 +1,7 @@
 from server import app, db
 from server.util import json_required
 from flask import jsonify, request
-from server.User import User
+from server.User import User, ROLE_USER, ROLE_ADMIN
 from sqlalchemy.exc import IntegrityError
 from flask_jwt_extended import jwt_required, get_jwt_identity
 
@@ -11,7 +11,7 @@ def get_all_user():
     current_user_id = get_jwt_identity()
     current_user = User.query.get(current_user_id)
 
-    if current_user.role == 0:
+    if current_user.role == ROLE_USER:
         return jsonify(msg="You are not an admin bro"), 400
 
     users = User.query.all()
@@ -26,6 +26,7 @@ def get_all_user():
 def delete_user(user_id):
     current_user = User.query.get(get_jwt_identity())
 
+    # TODO need to be fixed
     if not current_user.role == 1:
         return jsonify(msg="you are not an admin"), 400
 
@@ -46,7 +47,7 @@ def get_user(userID):
     current_user_id = get_jwt_identity()
     current_user = User.query.get(current_user_id)
 
-    if (current_user.role == 0
+    if (current_user.role == ROLE_USER
             and not current_user.id == userID):
         return jsonify(msg="only admin can see other users"), 400
 
@@ -62,7 +63,7 @@ def get_user(userID):
 def update_user(user_id):
     current_user = User.query.get(get_jwt_identity())
 
-    if (current_user.role == 0
+    if (current_user.role == ROLE_USER
             and not current_user.id == user_id):
         return jsonify(msg="only admin can update other users"), 400
 
@@ -117,3 +118,5 @@ def create_user():
         return jsonify(msg="username or email already in use"), 400
 
     return jsonify(msg="user created")
+
+
