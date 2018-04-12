@@ -4,6 +4,7 @@ from server.UserStats import UserStats
 from datetime import date, datetime
 from flask import jsonify, request
 from flask_jwt_extended import jwt_required, get_jwt_identity
+from sqlalchemy import func
 from server.util import json_required
 
 
@@ -68,6 +69,18 @@ def update_stats(user_id):
 
     return jsonify(msg="stats has been updated", stats=user_today_stats.to_json())
 
+@app.route('/api/stats/leaderboard', methods=['GET'])
+def leaderboard():
+
+    leaderboard_query = db.session.query(User.username, func.sum(UserStats.distance).label('distance'), func.sum(UserStats.calories).label('calories'), func.sum(UserStats.steps).label('steps')
+    ).join(User.user_stats
+    ).group_by(User.username
+    ).all()
 
 
+    json_user_list = list()
+    for user in leaderboard_query:
+        json_user_list.append({c: getattr(user, c) for c in user._fields})
+
+    return jsonify(leaderboard=json_user_list)
 
