@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { init } from '../../config/HealthData';
 
 /*
   Redirect to auth / app HoC
@@ -11,7 +12,7 @@ const withRedirect = (WrappedComponent) => {
 
     componentDidMount() {
       const { token, navigation } = this.props;
-      // FIXME: Change to actual call to /auth later
+      init(); // init health data
       if (token) {
         navigation.navigate('App');
       } else {

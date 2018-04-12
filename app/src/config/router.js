@@ -9,7 +9,8 @@ import ProfileScreen from '../screens/Profile';
 import SettingsScreen from '../screens/Settings';
 import LeaderboardScreen from '../screens/Leaderboard';
 import MapScreen from '../screens/Map';
-import withRedirect from '../screens/Splash/withRedirect';
+// other
+import withInit from '../screens/Splash/withInit';
 
 export const AuthStack = StackNavigator(
   {
@@ -51,7 +52,7 @@ export const AppDrawer = DrawerNavigator({
 
 export const RootNavigator = SwitchNavigator(
   {
-    Splash: withRedirect(SplashScreen),
+    Splash: withInit(SplashScreen),
     Auth: AuthStack,
     App: AppDrawer,
   },
