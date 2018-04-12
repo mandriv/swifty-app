@@ -77,5 +77,10 @@ def leaderboard():
     ).group_by(User.username
     ).all()
 
-    return "laci"
+
+    json_user_list = list()
+    for user in leaderboard_query:
+        json_user_list.append({c: getattr(user, c) for c in user._fields})
+
+    return jsonify(leaderboard=json_user_list)
 

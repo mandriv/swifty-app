@@ -56,7 +56,7 @@ in [brackets] - role required
 
 #### /auth
 * `POST /auth` - returns updated JWT and user object [anonymous]
-* `POST /auth/login` - return JWT and user object [anonymous]
+* `POST /api/auth/login` - return JWT and user object [anonymous]
     * username <- send the username
     * password <- send the password
 
