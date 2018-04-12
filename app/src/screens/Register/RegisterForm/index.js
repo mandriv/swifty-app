@@ -1,10 +1,11 @@
 import React from 'react';
 import { Text, View, TextInput, TouchableOpacity } from 'react-native';
-import { white, secondaryLight } from '../../../config/colours';
-
-import Button from '../../../shared/Button';
-import styles from './styles';
 import Icon from 'react-native-vector-icons/FontAwesome';
+
+import { white, secondaryLight } from '../../../config/colours';
+import styles from './styles';
+import Button from '../../../shared/Button';
+
 
 export default class RegisterForm extends React.Component {
 
@@ -15,25 +16,25 @@ export default class RegisterForm extends React.Component {
           <Text style={styles.label}>Username</Text>
         </View>
         <View style={styles.inputAndIcon}>
-          <Icon style={styles.icon} name="user" size={20} color="#F2994A" />
+          <Icon style={styles.icon} name="user" size={20} color={secondaryLight} />
           <TextInput
             style={styles.input}
             autoCorrect={false}
             autoCapitalize="none"
-            underlineColorAndroid="#fff"
+            underlineColorAndroid={white}
             onSubmitEditing={() => this.emailInput.focus()}
           />
         </View>
         <Text style={[styles.label, styles.mailLabel]}>E-mail</Text>
-
         <View style={styles.inputAndIcon}>
-          <Icon style={styles.icon} name="at" size={20} color="#F2994A" />
+          <Icon style={styles.icon} name="at" size={20} color={secondaryLight} />
           <TextInput
+            ref={input => this.emailInput = input} // eslint-disable-line
             style={styles.input}
             keyboardType="email-address"
             autoCorrect={false}
             autoCapitalize="none"
-            underlineColorAndroid="#fff"
+            underlineColorAndroid={white}
             onSubmitEditing={() => this.passwordInput.focus()}
           />
         </View>
@@ -41,19 +42,21 @@ export default class RegisterForm extends React.Component {
           <Text style={styles.label}>Password</Text>
         </View>
         <View style={styles.inputAndIcon}>
-          <Icon style={styles.icon} name="lock" size={20} color="#F2994A" />
+          <Icon style={styles.icon} name="lock" size={20} color={secondaryLight} />
           <TextInput
+            ref={input => this.passwordInput = input} // eslint-disable-line
             style={styles.input}
-            ref={input => this.passwordInput = input}
-            underlineColorAndroid="#fff"
+            underlineColorAndroid={white}
             autoCorrect={false}
             autoCapitalize="none"
             secureTextEntry
           />
         </View>
-        <TouchableOpacity style={styles.buttonContainer}>
-          <Text style={styles.button}>Go</Text>
-        </TouchableOpacity>
+        <View style={styles.button}>
+          <Button type="primary" fluid>
+            Go
+          </Button>
+        </View>
       </View>
     );
   }
