@@ -9,39 +9,34 @@ import Button from '../../shared/Button';
 
 export default class Start extends React.PureComponent {
 
-  goToLogin = () => this.props.navigation.navigate('Login');
+    goToLogin = () => this.props.navigation.navigate('Login');
 
-  goToRegister = () => this.props.navigation.navigate('Register');
-    
-    goToMap = () => this.props.navigation.navigate('Map');
+    goToRegister = () => this.props.navigation.navigate('Register');
 
-  render() {
-    return (
-      <ImageBlurBackground style={styles.splashContainer}>
-        <View style={[styles.container, styles.centerize]}>
-          <Logo />
-        </View>
-        <View style={[styles.container, styles.centerize, styles.textContainer]}>
-          <Text style={styles.title}>Welcome to Swifty</Text>
-          <Text style={styles.subTitle}>
-            Swifty is a walking steps and distance tracker.
-            Register now and compete with other city hikers.
-          </Text>
-        </View>
-        <View style={[styles.container, styles.buttons]}>
-          <View style={styles.buttonWrapper}>
-            <Button onPress={this.goToLogin} type="secondary">Sign In</Button>
+    render() {
+      return (
+        <ImageBlurBackground style={styles.splashContainer}>
+          <View style={[styles.container, styles.centerize]}>
+            <Logo />
           </View>
-          <View style={styles.buttonWrapper}>
-            <Button onPress={this.goToRegister}>Register</Button>
+          <View style={[styles.container, styles.centerize, styles.textContainer]}>
+            <Text style={styles.title}>Welcome to Swifty</Text>
+            <Text style={styles.subTitle}>
+              Swifty is a walking steps and distance tracker.
+              Register now and compete with other city hikers.
+            </Text>
           </View>
-        <View style={styles.buttonWrapper}>
-            <Button onPress={this.goToMap}>Map</Button>
+          <View style={[styles.container, styles.buttons]}>
+            <View style={styles.buttonWrapper}>
+              <Button onPress={this.goToLogin} type="secondary">Sign In</Button>
+            </View>
+            <View style={styles.buttonWrapper}>
+              <Button onPress={this.goToRegister}>Register</Button>
+            </View>
           </View>
-        </View>
-      </ImageBlurBackground>
-    );
-  }
+        </ImageBlurBackground>
+      );
+    }
 
 }
 
