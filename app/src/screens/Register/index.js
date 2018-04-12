@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, TouchableOpacity } from 'react-native';
+import { ScrollView, Text, View, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 import styles from './styles';
@@ -10,7 +10,7 @@ import { white } from '../../config/colours';
 export default class Register extends React.Component {
   render() {
     return (
-      <View style={styles.container}>
+      <ScrollView style={styles.container}>
         <View style={styles.shape} />
         <View style={styles.adjusted}>
           <Text style={styles.signIn}>Register</Text>
@@ -27,7 +27,7 @@ export default class Register extends React.Component {
           </View>
         </View>
         <View style={styles.shape2} />
-      </View>
+      </ScrollView>
     );
   }
 
