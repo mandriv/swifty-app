@@ -119,4 +119,7 @@ def create_user():
 
     return jsonify(msg="user created")
 
-
+@app.config('/api/users/<int:user_id>/picture', methods=['POST'])
+@jwt_required
+def upload_picture():
+    return jsonify(msg="picture upload placeholder")
