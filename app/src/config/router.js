@@ -5,7 +5,9 @@ import StartScreen from '../screens/Start';
 import RegisterScreen from '../screens/Register';
 import SignInScreen from '../screens/SignIn';
 import TodayScreen from '../screens/Today';
-// other
+import ProfileScreen from '../screens/Profile';
+import SettingsScreen from '../screens/Settings';
+import LeaderboardScreen from '../screens/Leaderboard';
 import withRedirect from '../screens/Splash/withRedirect';
 
 export const AuthStack = StackNavigator(
@@ -24,6 +26,12 @@ export const AuthStack = StackNavigator(
     },
     Register: {
       screen: RegisterScreen,
+      navigationOptions: {
+        header: false,
+      },
+    },
+      Today: {
+      screen: TodayScreen,
       navigationOptions: {
         header: false,
       },

@@ -1,41 +1,34 @@
 import React from 'react';
 import { Text, View, KeyboardAvoidingView, TouchableOpacity } from 'react-native';
-
 import styles from './styles';
 import LoginForm from './LoginForm';
+import Icon from 'react-native-vector-icons/FontAwesome'
 
 export default class SignIn extends React.Component {
-  render() {
+ render() {
     return (
-      <View style={[styles.container, styles.root]}>
-        <View style={[styles.shape, styles.topShape]} />
-        <View style={[styles.shape, styles.bottomShape]} />
-        <KeyboardAvoidingView
-          behavior="padding"
-          style={styles.keyboardAvoidingView}
-        >
-
-          <View style={[styles.container, styles.headerContainer]}>
-            <Text style={styles.header}>
-              Sign In
-            </Text>
-          </View>
-          <LoginForm />
-        </KeyboardAvoidingView>
-        <View style={[styles.container, styles.social]}>
-          <TouchableOpacity style={[styles.circle, styles.circleLeft]}>
-            <Text style={styles.button}>
-              f
-            </Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.circle}>
-            <Text style={styles.button}>
-              G
-            </Text>
-          </TouchableOpacity>
+      
+      <View
+      style={styles.container}>
+       <View style={styles.shape} />
+        <View style={styles.adjusted}>
+        <Text style = {styles.signIn}>Sign In</Text>
+        <View>
+</View>
+    <View style={styles.formContainer}>
+        <LoginForm/>
         </View>
+        <View style={styles.social}>
+        <TouchableOpacity style={[styles.circle,styles.circleLeft]} >
+        <Icon style={styles.button} name="facebook" size={40} color="#FDFFFF"/>
+        </TouchableOpacity>
+         <TouchableOpacity style={styles.circle} >
+          <Icon style={styles.button} name="google" size={40} color="#FDFFFF"/>
+        </TouchableOpacity>
+          </View>
+          </View>
+          <View style={styles.shape2} />
       </View>
     );
   }
-
 }
