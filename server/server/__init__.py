@@ -12,10 +12,6 @@ app.config.from_object(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///../sql'
 app.config['SECRET_KEY'] = 'evenmoresecretthanthis'
 
-# db
-# app.config['MONGO_DBNAME'] = 'swifty'
-# mongo = PyMongo(app, config_prefix='MONGO')
-
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
