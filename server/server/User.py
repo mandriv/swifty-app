@@ -1,6 +1,7 @@
 import hashlib
 
 from server import db
+from server.UserStats import UserStats
 
 
 class User(db.Model):
