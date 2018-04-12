@@ -5,11 +5,6 @@ from server import app, db
 from server.User import User
 from server.util import json_required
 
-@app.route('/migrate')
-def migrate():
-    db.create_all()
-    return "done"
-
 @app.route('/api/auth/login', methods=['POST'])
 @json_required
 def login():

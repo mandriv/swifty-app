@@ -8,7 +8,7 @@ from server.util import json_required
 
 
 @app.route('/api/stats/<int:user_id>', methods=['GET'])
-# @jwt_required
+@jwt_required
 def get_today_stats(user_id):
     current_user = User.query.get(get_jwt_identity())
 

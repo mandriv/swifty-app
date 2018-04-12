@@ -2,3 +2,4 @@
 __pycache__
 sql
 .DS_Store
+server/static/*.jpg
