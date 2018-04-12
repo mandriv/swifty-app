@@ -8,6 +8,7 @@ import TodayScreen from '../screens/Today';
 import ProfileScreen from '../screens/Profile';
 import SettingsScreen from '../screens/Settings';
 import LeaderboardScreen from '../screens/Leaderboard';
+import MapScreen from '../screens/Map';
 import withRedirect from '../screens/Splash/withRedirect';
 
 export const AuthStack = StackNavigator(
@@ -30,8 +31,8 @@ export const AuthStack = StackNavigator(
         header: false,
       },
     },
-       Settings: {
-      screen: SettingsScreen,
+       Map: {
+      screen: MapScreen,
       navigationOptions: {
         header: false,
       },
