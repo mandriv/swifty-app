@@ -10,6 +10,7 @@ class User(db.Model):
     passw = db.Column(db.String(128), unique=False, nullable=False)
     bio = db.Column(db.TEXT, unique=False, nullable=True)
     role = db.Column(db.Integer, unique=False, nullable=False)
+    user_stats = db.relationship('UserStats', backref='user', lazy=True, cascade="all, delete-orphan")
 
     def __repr__(self):
         return '<User %r>' % self.username
