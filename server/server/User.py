@@ -2,9 +2,10 @@ import hashlib
 
 from server import db
 from server.UserStats import UserStats
+from server.util import JsonModel
 
 
-class User(db.Model):
+class User(db.Model, JsonModel):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(100), unique=True, nullable=False)
     email = db.Column(db.String(100), unique=True, nullable=False)
@@ -15,9 +16,6 @@ class User(db.Model):
 
     def __repr__(self):
         return '<User %r>' % self.username
-
-    def to_json(self):
-        return {c.name: getattr(self, c.name) for c in self.__table__.columns}
 
     def set_hash_password(self, password):
         self.passw = self.__hash_password(password)

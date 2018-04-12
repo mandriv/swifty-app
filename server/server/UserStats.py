@@ -1,6 +1,7 @@
 from server import db
+from server.util import JsonModel
 
-class UserStats(db.Model):
+class UserStats(db.Model, JsonModel):
 
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
@@ -8,8 +9,4 @@ class UserStats(db.Model):
     calories = db.Column(db.Float, nullable = False)
     distance = db.Column(db.Float, nullable = False)
     avarage_speed = db.Column(db.Float, nullable = False)
-
-    def to_json(self):
-        return {c.name: getattr(self, c.name) for c in self.__table__.columns}
-
 
