@@ -11,3 +11,7 @@ def json_required(func):
         return func(*args, **kwargs)
 
     return g
+
+class JsonModel():
+    def to_json(self):
+        return {c.name: getattr(self, c.name) for c in self.__table__.columns}

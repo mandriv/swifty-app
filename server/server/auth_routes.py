@@ -1,17 +1,14 @@
 from flask import jsonify, request
 from flask_jwt_extended import create_access_token
 
-from server import app
+from server import app, db
 from server.User import User
 from server.util import json_required
 
-
-@app.route('/api/auth', methods=['POST'])
-@json_required
-def create_account():
-    access_token = create_access_token(identity="todo")
-    return jsonify(access_token=access_token), 200
-
+@app.route('/migrate')
+def migrate():
+    db.create_all()
+    return "done"
 
 @app.route('/api/auth/login', methods=['POST'])
 @json_required
