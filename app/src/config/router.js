@@ -9,7 +9,6 @@ import ProfileScreen from '../screens/Profile';
 import SettingsScreen from '../screens/Settings';
 import LeaderboardScreen from '../screens/Leaderboard';
 import MapScreen from '../screens/Map';
-import withRedirect from '../screens/Splash/withRedirect';
 // other
 import withInit from '../screens/Splash/withInit';
 
