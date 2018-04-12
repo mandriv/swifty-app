@@ -3,6 +3,7 @@ import { Text, View, TouchableOpacity } from 'react-native';
 import styles from './styles';
 import Icon from 'react-native-vector-icons/FontAwesome'
 import LinearGradient from 'react-native-linear-gradient';
+import CheckBox from 'react-native-check-box'
 
 export default class Profile extends React.Component {
  render() {
@@ -19,6 +20,16 @@ export default class Profile extends React.Component {
   <TouchableOpacity style = {styles.buttonContainer}
 >
      <Text style = {styles.button}>Units</Text>
+        <View style={styles.box}>
+        <CheckBox 
+        checkBoxColor='#FCFCFC'
+        />
+        <Text style = {styles.unit}>KM</Text>
+<CheckBox style={{marginLeft:10}}
+        checkBoxColor='#FCFCFC'
+   />
+        <Text style = {styles.unit}>MI</Text>
+        </View>
 </TouchableOpacity>
 <TouchableOpacity style = {styles.buttonContainer}>
      <Text style = {styles.button}>Modify Bio</Text>

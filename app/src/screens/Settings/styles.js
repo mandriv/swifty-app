@@ -12,13 +12,14 @@ const styles = StyleSheet.create({
     signIn: {
         textAlign: 'center',
         fontWeight: 'bold',
-        fontSize: 28,
+        fontSize: 25,
         marginTop: 40,
         marginRight: 130,
-        color: 'white',
-        marginBottom:50,
+        color: '#FCFCFC',
+        marginBottom: 50,
     },
     buttonContainer: {
+        flexDirection: 'row',
         height: 50,
         backgroundColor: 'rgba(252, 252, 252, 0.2)',
         paddingVertical: 10,
@@ -30,8 +31,16 @@ const styles = StyleSheet.create({
     },
     button: {
         paddingLeft: 15,
-        color: 'white',
+        color: '#FCFCFC',
         fontSize: 18,
+    },
+    unit: {
+    color:'#FCFCFC',
+        marginTop:3,
+        
+    },box:{
+      marginLeft:140, 
+        flexDirection: 'row',
     },
     top: {
         flexDirection: 'row',
