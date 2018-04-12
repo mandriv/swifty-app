@@ -5,6 +5,9 @@ from server.UserStats import UserStats
 from server.util import JsonModel
 
 
+ROLE_ADMIN = 1
+ROLE_USER = 0
+
 class User(db.Model, JsonModel):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(100), unique=True, nullable=False)
