@@ -1,24 +1,23 @@
 import AppleHealthKit from 'rn-apple-healthkit';
+import { Platform } from 'react-native';
 
-const PERMS = AppleHealthKit.Constants.Permissions;
+const APPLE_PERMS = AppleHealthKit.Constants.Permissions;
 
-export const healthKitOptions = {
+export const AppleHealthKitOptions = {
   permissions: {
     read: [
-      PERMS.StepCount, // steps
-      PERMS.ActiveEnergyBurned, // calories
-      PERMS.DistanceWalkingRunning, // distance
+      APPLE_PERMS.StepCount, // steps
+      APPLE_PERMS.ActiveEnergyBurned, // calories
+      APPLE_PERMS.DistanceWalkingRunning, // distance
     ],
     write: [],
   },
 };
 
 export const init = () => {
-  console.log('initializng');
-  AppleHealthKit.initHealthKit(healthKitOptions, (error, data) => {
-    AppleHealthKit.getStepCount({}, (err, steps) => {
-      console.log(err);
-      console.log(steps);
+  if (Platform.OS === 'ios') {
+    AppleHealthKit.initHealthKit(AppleHealthKitOptions, (err) => {
+      if (err) console.warn(err);
     });
-  });
+  }
 };
