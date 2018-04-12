@@ -119,7 +119,20 @@ def create_user():
 
     return jsonify(msg="user created")
 
-@app.config('/api/users/<int:user_id>/picture', methods=['POST'])
+@app.route('/api/users/<int:user_id>/picture', methods=['POST'])
 @jwt_required
-def upload_picture():
+def upload_picture(user_id):
+
+    current_user = User.query.get(get_jwt_identity())
+
+    if (current_user.role == ROLE_USER
+            and not current_user.id == user_id):
+        return jsonify(msg="only admin can update other users"), 400
+
+    if 'picture' not in request.files:
+        return jsonify(msg="please send a picture"), 400
+
+    picture = request.files['picture']
+    picture.save("static/" + str(user_id) + ".jpg")
+
     return jsonify(msg="picture upload placeholder")
