@@ -9,12 +9,13 @@ import TodayDistanceScreen from '../screens/Today/Distance';
 import TodayCaloriesScreen from '../screens/Today/Calories';
 import TodayAverageSpeedScreen from '../screens/Today/AverageSpeed';
 import ProfileScreen from '../screens/Profile';
-import SettingsScreen from '../screens/Settings';
+import MainSettingsScreen from '../screens/Settings/Main';
+import ModifyGoalsSettingsScreen from '../screens/Settings/ModifyGoals';
 import LeaderboardScreen from '../screens/Leaderboard';
 import MapScreen from '../screens/Map';
 // other
 import withInit from '../screens/Splash/withInit';
-import { primaryLight, secondaryLight, offWhite, white, primary } from '../config/colours';
+import { primaryLight, secondaryLight, offWhite, primary } from '../config/colours';
 
 export const AuthStack = StackNavigator(
   {
@@ -65,6 +66,19 @@ export const TodayTabs = TabNavigator({
   },
 });
 
+export const SettingsStack = StackNavigator({
+  Main: {
+    screen: MainSettingsScreen,
+  },
+  ModifyGoals: {
+    screen: ModifyGoalsSettingsScreen,
+  },
+}, {
+  navigationOptions: {
+    header: null,
+  },
+});
+
 export const AppDrawer = DrawerNavigator({
   Today: TodayTabs,
   Map: {
@@ -76,9 +90,7 @@ export const AppDrawer = DrawerNavigator({
   Profile: {
     screen: ProfileScreen,
   },
-  Settings: {
-    screen: SettingsScreen,
-  },
+  Settings: SettingsStack,
 }, {
   drawerBackgroundColor: primaryLight,
   contentOptions: {
