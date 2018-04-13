@@ -14,7 +14,7 @@ import LeaderboardScreen from '../screens/Leaderboard';
 import MapScreen from '../screens/Map';
 // other
 import withInit from '../screens/Splash/withInit';
-import { primaryLight, secondaryLight, offWhite, white } from '../config/colours';
+import { primaryLight, secondaryLight, offWhite, white, primary } from '../config/colours';
 
 export const AuthStack = StackNavigator(
   {
@@ -59,9 +59,9 @@ export const TodayTabs = TabNavigator({
   swipeEnabled: true,
   tabBarOptions: {
     activeTintColor: secondaryLight,
-    activeBackgroundColor: primaryLight,
+    activeBackgroundColor: primary,
     inactiveTintColor: offWhite,
-    inactiveBackgroundColor: primaryLight,
+    inactiveBackgroundColor: primary,
   },
 });
 

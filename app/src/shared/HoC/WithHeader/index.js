@@ -15,7 +15,7 @@ const WithHeader = (WrappedComponent, title) => {
 
     render() {
       return (
-        <View>
+        <View style={{ flex: 1 }}>
           <Header title={title} />
           <WrappedComponent />
         </View>

@@ -1,9 +1,12 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
+import LinearGradient from 'react-native-linear-gradient';
 
 import WithHeader from '../../shared/HoC/WithHeader';
-
+import DefaultBackground from '../../shared/DefaultBackground';
+import ProgressPie from './ProgressPie';
+import styles from './styles';
 
 class TodaySteps extends React.PureComponent {
 
@@ -14,8 +17,10 @@ class TodaySteps extends React.PureComponent {
 
   render() {
     return (
-      <View>
-        <Text>Today steps</Text>
+      <View style={styles.container}>
+        <DefaultBackground>
+          <Text>Haha!</Text>
+        </DefaultBackground>
       </View>
     );
   }

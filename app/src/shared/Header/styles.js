@@ -4,9 +4,10 @@ import { primary } from '../../config/fonts';
 
 const styles = StyleSheet.create({
   header: {
+    flex: 0,
     flexDirection: 'row',
     paddingHorizontal: 10,
-    paddingBottom: 20,
+    paddingBottom: 10,
     paddingTop: 30,
     backgroundColor: primaryLight,
     alignItems: 'center',
