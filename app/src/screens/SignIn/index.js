@@ -8,16 +8,27 @@ import EnhacedLoginForm from './LoginForm/EnhacedLoginForm';
 
 export default class SignIn extends React.Component {
 
+  state = {
+    loading: false,
+  };
+
+  handleSubmit = (values) => {
+    this.setState({ loading: true });
+    console.log(values);
+  }
+
   render() {
     return (
-
       <View style={styles.container}>
         <View style={styles.shape} />
         <View style={styles.adjusted}>
           <Text style={styles.signIn}>Sign In</Text>
           <View />
           <View style={styles.formContainer}>
-            <EnhacedLoginForm />
+            <EnhacedLoginForm
+              onSubmit={this.handleSubmit}
+              loading={this.state.loading}
+            />
           </View>
           <View style={styles.social}>
             <TouchableOpacity style={[styles.circle, styles.circleLeft]} >
