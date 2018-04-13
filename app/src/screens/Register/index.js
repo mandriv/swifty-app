@@ -5,11 +5,18 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import styles from './styles';
 import EnhacedRegisterForm from './RegisterForm/EnhacedRegisterForm';
 import { white } from '../../config/colours';
+import { register } from '../../services/auth';
 
 
 export default class Register extends React.Component {
 
-  handleSubmit = (values) => {
+  state = {
+    loading: false,
+  }
+
+  handleSubmit = async (values) => {
+    this.setState({ loading: true });
+    await register(values);
     console.log(values);
   }
 
@@ -20,7 +27,10 @@ export default class Register extends React.Component {
         <View style={styles.adjusted}>
           <Text style={styles.signIn}>Register</Text>
           <View style={styles.formContainer}>
-            <EnhacedRegisterForm onSubmit={this.handleSubmit} />
+            <EnhacedRegisterForm
+              onSubmit={this.handleSubmit}
+              loading={this.state.loading}
+            />
           </View>
           <View style={styles.social}>
             <TouchableOpacity style={[styles.circle, styles.circleLeft]}>

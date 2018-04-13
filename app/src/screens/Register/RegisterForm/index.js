@@ -55,7 +55,12 @@ export default class RegisterForm extends React.Component {
           error={this.props.touched.password && this.props.errors.password}
         />
         <View style={styles.button}>
-          <Button type="primary" fluid onPress={this.props.submitForm}>
+          <Button
+            type="primary"
+            fluid
+            onPress={this.props.submitForm}
+            loading={this.props.loading}
+          >
             Go
           </Button>
         </View>
@@ -66,6 +71,7 @@ export default class RegisterForm extends React.Component {
 }
 
 RegisterForm.propTypes = {
+  loading: PropTypes.bool.isRequired,
   values: PropTypes.object.isRequired, // eslint-disable-line
   touched: PropTypes.object.isRequired, // eslint-disable-line
   errors: PropTypes.object.isRequired, // eslint-disable-line

@@ -34,7 +34,12 @@ export default class EnhacedRegisterForm extends Component {
           })
         }
         onSubmit={this.props.onSubmit}
-        render={({ ...formikProps }) => <RegisterForm {...formikProps} />}
+        render={({ ...formikProps }) => (
+          <RegisterForm
+            loading={this.props.loading}
+            {...formikProps}
+          />
+        )}
       />
     );
   }
@@ -43,4 +48,5 @@ export default class EnhacedRegisterForm extends Component {
 
 EnhacedRegisterForm.propTypes = {
   onSubmit: PropTypes.func.isRequired,
+  loading: PropTypes.bool.isRequired,
 };
