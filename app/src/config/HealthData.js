@@ -8,7 +8,6 @@ export const AppleHealthKitOptions = {
     read: [
       APPLE_PERMS.StepCount, // steps
       APPLE_PERMS.ActiveEnergyBurned, // calories
-      APPLE_PERMS.DistanceWalkingRunning, // distance
     ],
     write: [],
   },

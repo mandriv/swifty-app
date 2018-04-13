@@ -10,9 +10,13 @@ import styles from './styles';
 
 export default class Today extends React.PureComponent {
 
+  static navigationOptions = {
+    title: 'Home',
+  };
+
   render() {
     return (
-	<LinearGradient colors={['#00A7E1', '#1985CF', '#3066BE']} 
+	<LinearGradient colors={['#00A7E1', '#1985CF', '#3066BE']}
       style={styles.container}>
         <View style = {styles.top}>
         <View style={styles.icon}>
@@ -60,7 +64,7 @@ export default class Today extends React.PureComponent {
 	          <Text style={styles.text}>today's goal</Text>
 	        </View>
 		</View>
-			      
+
 		<View style={styles.footer}>
 			<TouchableOpacity style={styles.bottomTab}>
 			<Text style={styles.iconCircle}><Icon2 name="md-walk" size={25}/></Text>

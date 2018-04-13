@@ -1,45 +1,67 @@
 import React from 'react';
-import { Text, View, TextInput, TouchableOpacity } from 'react-native';
-import { white } from '../../../config/colours';
+import PropTypes from 'prop-types';
+import { View } from 'react-native';
 
-import Button from '../../../shared/Button';
 import styles from './styles';
-import Icon from 'react-native-vector-icons/FontAwesome'
+import Button from '../../../shared/Button';
+import Input from '../../../shared/Input';
 
-export default class LoginForm extends React.Component {
 
-   render() {
+export default class RegisterForm extends React.Component {
+
+  render() {
     return (
       <View style={styles.container}>
-      <View style = {styles.leftView}>
-        <Text style={styles.label}>Username</Text>
+        <Input
+          label="Username"
+          icon="user"
+          autoCorrect={false}
+          autoCapitalize="none"
+          onSubmitEditing={() => this.passwordInput.focus()}
+          onChangeText={(text) => {
+            this.props.setFieldValue('username', text);
+            this.props.setFieldTouched('username', true);
+          }}
+          value={this.props.values.username}
+          error={this.props.touched.username && this.props.errors.username}
+        />
+        <Input
+          inputRef={input => this.passwordInput = input} // eslint-disable-line
+          label="Password"
+          icon="lock"
+          autoCorrect={false}
+          autoCapitalize="none"
+          secureTextEntry
+          onChangeText={(text) => {
+            this.props.setFieldValue('password', text);
+            this.props.setFieldTouched('password', true);
+          }}
+          value={this.props.values.password}
+          error={this.props.touched.password && this.props.errors.password}
+          onSubmitEditing={this.props.submitForm}
+        />
+        <View style={styles.button}>
+          <Button
+            type="primary"
+            fluid
+            onPress={this.props.submitForm}
+            loading={this.props.loading}
+          >
+            Go
+          </Button>
         </View>
-        <View style={styles.inputAndIcon}>
-       <Icon style={styles.icon} name="user" size={20} color="#F2994A"/>
-       <TextInput style={styles.input}
-       keyboardType='email-address'
-       autoCorrect={false}
-       autoCapitalize='none'
-         underlineColorAndroid='#fff'
-       onSubmitEditing={() => this.passwordInput.focus()}/>
-       </View>
-       <View style = {styles.leftView}>
-        <Text style={styles.label}>Password</Text>
-        </View>
-        <View style={styles.inputAndIcon}>
-            <Icon style={styles.icon} name="lock" size={20} color="#F2994A"/>
-        <TextInput style={styles.input}
-        ref ={(input) => this.passwordInput= input}
-         underlineColorAndroid='#fff'
-        autoCorrect={false}
-       autoCapitalize='none'
-        secureTextEntry/>
-        </View>
-        <TouchableOpacity style = {styles.buttonContainer}
->
-<Text style = {styles.button}>Go</Text>
-</TouchableOpacity>
       </View>
     );
   }
+
 }
+
+RegisterForm.propTypes = {
+  loading: PropTypes.bool.isRequired,
+  values: PropTypes.object.isRequired, // eslint-disable-line
+  touched: PropTypes.object.isRequired, // eslint-disable-line
+  errors: PropTypes.object.isRequired, // eslint-disable-line
+  setFieldValue: PropTypes.func.isRequired,
+  setFieldTouched: PropTypes.func.isRequired,
+  submitForm: PropTypes.func.isRequired,
+};
