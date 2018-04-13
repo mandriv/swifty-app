@@ -53,6 +53,7 @@ export default class RegisterForm extends React.Component {
           }}
           value={this.props.values.password}
           error={this.props.touched.password && this.props.errors.password}
+          onSubmitEditing={this.props.submitForm}
         />
         <View style={styles.button}>
           <Button
