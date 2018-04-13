@@ -1,3 +1,4 @@
+import datetime
 import os
 
 from flask import Flask, send_from_directory
@@ -27,6 +28,7 @@ migrate = Migrate(app, db)
 # jwt
 jwt_key = os.environ.get('JWT_SECRET_KEY')
 app.config['JWT_SECRET_KEY'] = jwt_key if jwt_key else 'secret key'  # Change this!
+app.config['JWT_ACCESS_TOKEN_EXPIRES'] = datetime.timedelta(days=365)
 jwt = JWTManager(app)
 
 
