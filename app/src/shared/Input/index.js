@@ -20,6 +20,7 @@ export default class Input extends React.PureComponent {
           <TextInput
             style={styles.input}
             underlineColorAndroid={white}
+            ref={this.props.inputRef}
             {...this.props}
           />
         </View>
@@ -37,9 +38,11 @@ Input.propTypes = {
   label: PropTypes.string.isRequired,
   icon: PropTypes.string,
   error: PropTypes.string,
+  inputRef: PropTypes.func,
 };
 
 Input.defaultProps = {
   icon: '',
   error: '',
+  inputRef: () => null,
 };

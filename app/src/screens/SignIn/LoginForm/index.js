@@ -17,7 +17,7 @@ export default class RegisterForm extends React.Component {
           icon="user"
           autoCorrect={false}
           autoCapitalize="none"
-          onSubmitEditing={() => this.emailInput.focus()}
+          onSubmitEditing={() => this.passwordInput.focus()}
           onChangeText={(text) => {
             this.props.setFieldValue('username', text);
             this.props.setFieldTouched('username', true);
@@ -26,7 +26,7 @@ export default class RegisterForm extends React.Component {
           error={this.props.touched.username && this.props.errors.username}
         />
         <Input
-          ref={input => this.passwordInput = input} // eslint-disable-line
+          inputRef={input => this.passwordInput = input} // eslint-disable-line
           label="Password"
           icon="lock"
           autoCorrect={false}
@@ -38,6 +38,7 @@ export default class RegisterForm extends React.Component {
           }}
           value={this.props.values.password}
           error={this.props.touched.password && this.props.errors.password}
+          onSubmitEditing={this.props.submitForm}
         />
         <View style={styles.button}>
           <Button

@@ -26,7 +26,7 @@ export default class RegisterForm extends React.Component {
           error={this.props.touched.username && this.props.errors.username}
         />
         <Input
-          ref={input => this.emailInput = input} // eslint-disable-line
+          inputRef={input => this.emailInput = input} // eslint-disable-line
           label="E-mail"
           icon="at"
           keyboardType="email-address"
@@ -41,7 +41,7 @@ export default class RegisterForm extends React.Component {
           error={this.props.touched.email && this.props.errors.email}
         />
         <Input
-          ref={input => this.passwordInput = input} // eslint-disable-line
+          inputRef={input => this.passwordInput = input} // eslint-disable-line
           label="Password"
           icon="lock"
           autoCorrect={false}
