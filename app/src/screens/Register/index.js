@@ -17,26 +17,31 @@ export default class Register extends React.Component {
 
   handleSubmit = async (values) => {
     this.setState({ loading: true });
-    let error = false;
     // register
     try {
       await register(values);
     } catch (err) {
-      error = true;
-      console.warn(err);
-      Toast.show(err);
+      if (err.response.status === 404) {
+        Toast.show('Lost connection to the server');
+        this.setState({ loading: false });
+        return;
+      }
+      console.error(err.response);
+      Toast.show(err.response.data);
     }
     // login
-    if (!error) {
-      try {
-        const response = await login(values);
-        console.log(response);
-      } catch (err) {
-        console.warn(err);
-        Toast.show(err);
+    try {
+      const response = await login(values);
+      console.log(response);
+    } catch (err) {
+      if (err.response.status === 404) {
+        Toast.show('Lost connection to the server');
+        this.setState({ loading: false });
+        return;
       }
+      console.error(err.response);
+      Toast.show(err.response.data);
     }
-    this.setState({ loading: false });
   }
 
   render() {
