@@ -23,6 +23,8 @@ Set the environment variables
 
 `PORT` - Port
 
+`DATABASE_URI` - Database URI
+
 ## Development
 
 
