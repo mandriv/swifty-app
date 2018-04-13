@@ -1,19 +1,18 @@
 import { StyleSheet } from 'react-native';
-import { white, primaryLight, secondaryLight } from '../../config/colours';
+import { white, primaryLight, secondaryLight, blackLight } from '../../config/colours';
 import { primary } from '../../config/fonts';
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#FDFFFF',
-
+    backgroundColor: white,
   },
   signIn: {
+    fontFamily: primary('Bold'),
     textAlign: 'center',
-    fontWeight: 'bold',
     fontSize: 30,
     marginBottom: 30,
-    color: '#222222',
+    color: blackLight,
   },
   shape: {
     width: 0,
@@ -23,7 +22,7 @@ const styles = StyleSheet.create({
     borderRightWidth: 460,
     borderTopWidth: 100,
     borderRightColor: 'transparent',
-    borderTopColor: '#00A7E1',
+    borderTopColor: primaryLight,
 
   },
   shape2: {
@@ -35,7 +34,7 @@ const styles = StyleSheet.create({
     borderBottomWidth: 80,
     borderLeftColor: 'transparent',
     borderRightColor: 'transparent',
-    borderBottomColor: '#00A7E1',
+    borderBottomColor: primaryLight,
     flex: 1,
     bottom: 0,
     right: 0,
@@ -44,7 +43,7 @@ const styles = StyleSheet.create({
     width: 75,
     height: 75,
     borderRadius: 100 / 2,
-    backgroundColor: '#F2994A',
+    backgroundColor: secondaryLight,
     shadowColor: 'black',
     shadowOffset: {
       width: 0,
