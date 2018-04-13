@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { init } from '../../config/HealthData';
+import { auth } from '../../services/auth';
 
 /*
   Redirect to auth / app HoC
@@ -14,10 +15,20 @@ const withRedirect = (WrappedComponent) => {
       const { token, navigation } = this.props;
       init(); // init health data
       if (token) {
+        /*
+        auth()
+          .then((response) => {
+            console.log(response);
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+
+        */
         navigation.navigate('App');
-      } else {
-        navigation.navigate('Auth');
+        return;
       }
+      navigation.navigate('Auth');
     }
 
     render() {
