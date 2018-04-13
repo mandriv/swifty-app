@@ -1,34 +1,36 @@
 import React from 'react';
-import { Text, View, KeyboardAvoidingView, TouchableOpacity } from 'react-native';
+import { Text, View, TouchableOpacity } from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
+
+import { white } from '../../config/colours';
 import styles from './styles';
-import LoginForm from './LoginForm';
-import Icon from 'react-native-vector-icons/FontAwesome'
+import EnhacedLoginForm from './LoginForm/EnhacedLoginForm';
 
 export default class SignIn extends React.Component {
- render() {
+
+  render() {
     return (
-      
-      <View
-      style={styles.container}>
-       <View style={styles.shape} />
+
+      <View style={styles.container}>
+        <View style={styles.shape} />
         <View style={styles.adjusted}>
-        <Text style = {styles.signIn}>Sign In</Text>
-        <View>
-</View>
-    <View style={styles.formContainer}>
-        <LoginForm/>
+          <Text style={styles.signIn}>Sign In</Text>
+          <View />
+          <View style={styles.formContainer}>
+            <EnhacedLoginForm />
+          </View>
+          <View style={styles.social}>
+            <TouchableOpacity style={[styles.circle, styles.circleLeft]} >
+              <Icon style={styles.button} name="facebook" size={40} color={white} />
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.circle} >
+              <Icon style={styles.button} name="google" size={40} color={white} />
+            </TouchableOpacity>
+          </View>
         </View>
-        <View style={styles.social}>
-        <TouchableOpacity style={[styles.circle,styles.circleLeft]} >
-        <Icon style={styles.button} name="facebook" size={40} color="#FDFFFF"/>
-        </TouchableOpacity>
-         <TouchableOpacity style={styles.circle} >
-          <Icon style={styles.button} name="google" size={40} color="#FDFFFF"/>
-        </TouchableOpacity>
-          </View>
-          </View>
-          <View style={styles.shape2} />
+        <View style={styles.shape2} />
       </View>
     );
   }
+
 }
