@@ -32,12 +32,6 @@ export const AuthStack = StackNavigator(
         header: false,
       },
     },
-       Map: {
-      screen: MapScreen,
-      navigationOptions: {
-        header: false,
-      },
-    },
   },
   {
     initialRouteName: 'Start',
