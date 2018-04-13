@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Text, View, StyleSheet } from 'react-native';
-import { connect } from 'react-redux';
+import { Formik } from 'formik';
+import Yup from 'yup';
+
+import RegisterForm from '.';
 
 /*
   Formik handler
@@ -11,20 +13,34 @@ export default class EnhacedRegisterForm extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
-        <Text>EnhacedRegisterForm screen</Text>
-      </View>
+      <Formik
+        initialvalues={{
+          username: '',
+          password: '',
+          email: '',
+        }}
+        validationSchema={() =>
+          Yup.object().shape({
+            username: Yup
+              .string()
+              .required('Please enter your username'),
+            password: Yup
+              .string()
+              .required('Please enter your password'),
+            email: Yup
+              .string()
+              .required('Please enter your email')
+              .email('Invalid email address'),
+          })
+        }
+        onSubmit={this.props.onSubmit}
+        render={({ ...formikProps }) => <RegisterForm {...formikProps} />}
+      />
     );
   }
 
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-});
-
 EnhacedRegisterForm.propTypes = {
-
+  onSubmit: PropTypes.func.isRequired,
 };

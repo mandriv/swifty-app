@@ -3,11 +3,16 @@ import { ScrollView, Text, View, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 import styles from './styles';
-import RegisterForm from './RegisterForm';
+import EnhacedRegisterForm from './RegisterForm/EnhacedRegisterForm';
 import { white } from '../../config/colours';
 
 
 export default class Register extends React.Component {
+
+  handleSubmit = (values) => {
+    console.log(values);
+  }
+
   render() {
     return (
       <ScrollView style={styles.container}>
@@ -15,7 +20,7 @@ export default class Register extends React.Component {
         <View style={styles.adjusted}>
           <Text style={styles.signIn}>Register</Text>
           <View style={styles.formContainer}>
-            <RegisterForm />
+            <EnhacedRegisterForm onSubmit={this.handleSubmit} />
           </View>
           <View style={styles.social}>
             <TouchableOpacity style={[styles.circle, styles.circleLeft]}>
