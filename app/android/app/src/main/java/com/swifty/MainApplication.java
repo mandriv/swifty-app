@@ -3,6 +3,7 @@ package com.swifty;
 import android.app.Application;
 import com.BV.LinearGradient.LinearGradientPackage;
 import com.facebook.react.ReactApplication;
+import com.horcrux.svg.SvgPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
 import com.react.rnspinkit.RNSpinkitPackage;
 import com.BV.LinearGradient.LinearGradientPackage;
@@ -32,6 +33,7 @@ public class MainApplication extends Application implements ReactApplication {
         protected List<ReactPackage> getPackages() {
             return Arrays.<ReactPackage>asList(
                     new MainReactPackage(),
+            new SvgPackage(),
             new VectorIconsPackage(),
             new RNSpinkitPackage(),
             new LinearGradientPackage(),
