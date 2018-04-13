@@ -14,6 +14,8 @@ export default StyleSheet.create({
     },
     shadowRadius: 4,
     shadowOpacity: 0.25,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   fluid: {
     flex: 1,
