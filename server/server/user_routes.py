@@ -3,7 +3,8 @@ from server.util import json_required
 from flask import jsonify, request
 from server.User import User, ROLE_USER, ROLE_ADMIN
 from sqlalchemy.exc import IntegrityError
-from flask_jwt_extended import jwt_required, get_jwt_identity
+from flask_jwt_extended import jwt_required, get_jwt_identity, create_access_token
+
 
 @app.route('/api/users', methods=['GET'])
 @jwt_required
@@ -103,10 +104,16 @@ def create_user():
     if (not 'username' in user_data
             or not 'password' in user_data
             or not 'email' in user_data):
-       return jsonify(msg="username, password, email fields are required!"), 400
+       return jsonify(msg="Username, password, email fields are required!"), 400
 
     user = User(username=user_data['username'], email=user_data['email'], role=0)
     user.set_hash_password(user_data['password'])
+
+    if User.query.filter_by(username=user.username).first():
+        return jsonify(msg="Username already in use"), 400
+
+    if User.query.filter_by(email=user.email).first():
+        return jsonify(msg="Email already in use"), 400
 
     if 'bio' in user_data:
         user.bio = user_data['bio']
@@ -114,10 +121,11 @@ def create_user():
     try:
         db.session.add(user)
         db.session.commit()
-    except IntegrityError:
-        return jsonify(msg="username or email already in use"), 400
+    except IntegrityError as e:
+        return jsonify(msg="Username or email already in use"), 400
 
-    return jsonify(msg="user created")
+    access_token = create_access_token(identity=user.id)
+    return jsonify(access_token=access_token, user=user.to_json()), 200
 
 @app.route('/api/users/<int:user_id>/picture', methods=['POST'])
 @jwt_required

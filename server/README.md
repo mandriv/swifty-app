@@ -12,7 +12,7 @@ python3.6 and pip3.6
 Install modules
 
 ```
-pip install -r requirements.txt
+python setup.py install
 ```
 
 **Environment variables**
@@ -21,6 +21,9 @@ Set the environment variables
 
 `JWT_SECRET_KEY` - JWT secret key
 
+`PORT` - Port
+
+`DATABASE_URI` - Database URI
 
 ## Development
 
@@ -29,7 +32,7 @@ Set the environment variables
 python server/app.py
 ```
 
-Starts the api server on localhost:5000
+Starts the api server
 
 
 ## Deploy
@@ -37,7 +40,7 @@ Starts the api server on localhost:5000
 Deploy to Heroku
 
 ```
-git push heroku `git subtree split --prefix server master`:master
+git push heroku `git subtree split --prefix server master`:master --force
 ```
 GL & HF
 

@@ -4,18 +4,12 @@ import android.app.Application;
 import com.BV.LinearGradient.LinearGradientPackage;
 import com.facebook.react.ReactApplication;
 import com.horcrux.svg.SvgPackage;
-import com.oblador.vectoricons.VectorIconsPackage;
-import com.react.rnspinkit.RNSpinkitPackage;
-import com.BV.LinearGradient.LinearGradientPackage;
-import com.lugg.ReactNativeConfig.ReactNativeConfigPackage;
-import com.react.rnspinkit.RNSpinkitPackage;
-import com.BV.LinearGradient.LinearGradientPackage;
-import com.lugg.ReactNativeConfig.ReactNativeConfigPackage;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
 import com.facebook.soloader.SoLoader;
 import com.lugg.ReactNativeConfig.ReactNativeConfigPackage;
+import com.oblador.vectoricons.VectorIconsPackage;
 import com.react.rnspinkit.RNSpinkitPackage;
 
 import java.util.Arrays;
@@ -33,14 +27,8 @@ public class MainApplication extends Application implements ReactApplication {
         protected List<ReactPackage> getPackages() {
             return Arrays.<ReactPackage>asList(
                     new MainReactPackage(),
-            new SvgPackage(),
-            new VectorIconsPackage(),
-            new RNSpinkitPackage(),
-            new LinearGradientPackage(),
-            new ReactNativeConfigPackage(),
-            new RNSpinkitPackage(),
-            new LinearGradientPackage(),
-            new ReactNativeConfigPackage(),
+                    new SvgPackage(),
+                    new VectorIconsPackage(),
                     new RNSpinkitPackage(),
                     new LinearGradientPackage(),
                     new ReactNativeConfigPackage()
