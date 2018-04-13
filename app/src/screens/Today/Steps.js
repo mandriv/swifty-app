@@ -1,7 +1,6 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
-import LinearGradient from 'react-native-linear-gradient';
 
 import WithHeader from '../../shared/HoC/WithHeader';
 import DefaultBackground from '../../shared/DefaultBackground';
@@ -19,7 +18,9 @@ class TodaySteps extends React.PureComponent {
     return (
       <View style={styles.container}>
         <DefaultBackground>
-          <Text>Haha!</Text>
+          <View style={styles.progressPieContainer}>
+            <ProgressPie />
+          </View>
         </DefaultBackground>
       </View>
     );
@@ -27,4 +28,4 @@ class TodaySteps extends React.PureComponent {
 
 }
 
-export default WithHeader(TodaySteps, 'Today');
+export default WithHeader(TodaySteps, 'Today\'s activity');
