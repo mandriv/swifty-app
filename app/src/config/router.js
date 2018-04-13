@@ -42,6 +42,18 @@ export const AppDrawer = DrawerNavigator({
   Today: {
     screen: TodayScreen,
   },
+  Map: {
+    screen: MapScreen,
+  },
+  Leaderboard: {
+    screen: LeaderboardScreen,
+  },
+  Profile: {
+    screen: ProfileScreen,
+  },
+  Settings: {
+    screen: SettingsScreen,
+  },
 });
 
 export const RootNavigator = SwitchNavigator(
