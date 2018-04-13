@@ -28,3 +28,8 @@ migrate = Migrate(app, db)
 jwt_key = os.environ.get('JWT_SECRET_KEY')
 app.config['JWT_SECRET_KEY'] = jwt_key if jwt_key else 'secret key'  # Change this!
 jwt = JWTManager(app)
+
+
+import server.auth_routes
+import server.stat_routes
+import server.user_routes

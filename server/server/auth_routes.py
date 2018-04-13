@@ -5,6 +5,10 @@ from server import app, db
 from server.User import User
 from server.util import json_required
 
+@app.route('/', methods=['GET'])
+def d():
+    return 'hello', 200
+
 @app.route('/ping', methods=['GET'])
 def pong():
     return 'pong', 200

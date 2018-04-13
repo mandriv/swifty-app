@@ -12,7 +12,7 @@ python3.6 and pip3.6
 Install modules
 
 ```
-pip install -r requirements.txt
+python setup.py install
 ```
 
 **Environment variables**
