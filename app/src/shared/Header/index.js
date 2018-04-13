@@ -17,7 +17,7 @@ class Header extends React.PureComponent {
             <Icon name="bars" size={30} color={offWhite} />
           </TouchableOpacity>
         </View>
-        <Text style={[styles.title, styles.flex]}>{this.props.title}</Text>
+        <Text style={[styles.title]}>{this.props.title}</Text>
         <View style={styles.flex} />
       </View>
     );
