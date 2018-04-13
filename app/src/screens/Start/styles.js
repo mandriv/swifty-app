@@ -16,7 +16,7 @@ export default StyleSheet.create({
   },
   title: {
     fontFamily: primary('Bold'),
-    fontSize: 36,
+    fontSize: 32,
     textAlign: 'center',
     color: white,
   },
