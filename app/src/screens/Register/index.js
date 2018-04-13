@@ -1,11 +1,12 @@
 import React from 'react';
 import { ScrollView, Text, View, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import Toast from 'react-native-simple-toast';
 
 import styles from './styles';
 import EnhacedRegisterForm from './RegisterForm/EnhacedRegisterForm';
 import { white } from '../../config/colours';
-import { register } from '../../services/auth';
+import { register, login } from '../../services/auth';
 
 
 export default class Register extends React.Component {
@@ -16,8 +17,26 @@ export default class Register extends React.Component {
 
   handleSubmit = async (values) => {
     this.setState({ loading: true });
-    await register(values);
-    console.log(values);
+    let error = false;
+    // register
+    try {
+      await register(values);
+    } catch (err) {
+      error = true;
+      console.warn(err);
+      Toast.show(err);
+    }
+    // login
+    if (!error) {
+      try {
+        const response = await login(values);
+        console.log(response);
+      } catch (err) {
+        console.warn(err);
+        Toast.show(err);
+      }
+    }
+    this.setState({ loading: false });
   }
 
   render() {
