@@ -1,15 +1,19 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { ScrollView, Text, View, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import Toast from 'react-native-simple-toast';
+import { connect } from 'react-redux';
 
 import styles from './styles';
 import EnhacedRegisterForm from './RegisterForm/EnhacedRegisterForm';
 import { white } from '../../config/colours';
 import { register, login } from '../../services/auth';
+import * as TokenRedux from '../../redux/Token.redux';
+import * as UserRedux from '../../redux/User.redux';
 
 
-export default class Register extends React.Component {
+class Register extends React.Component {
 
   state = {
     loading: false,
@@ -21,26 +25,38 @@ export default class Register extends React.Component {
     try {
       await register(values);
     } catch (err) {
-      if (err.response.status === 404) {
+      console.log(err); // eslint-disable-line
+      console.log(err.response); // eslint-disable-line
+      if (err.response && (err.response.status === 404 || err.response.status === 500)) {
         Toast.show('Lost connection to the server');
         this.setState({ loading: false });
         return;
       }
-      console.error(err.response);
-      Toast.show(err.response.data);
+      if (err.response && err.response.data && err.response.data.msg) {
+        Toast.show(err.response.data.msg);
+      }
+      this.setState({ loading: false });
+      return;
     }
     // login
     try {
       const response = await login(values);
       console.log(response);
+      this.props.receiveToken(response.data.access_token);
+      this.props.receiveUser(response.data.user);
+      this.props.navigation.navigate('App');
     } catch (err) {
-      if (err.response.status === 404) {
+      console.log(err);
+      console.log(err.response); // eslint-disable-line
+      if (err.response && (err.response.status === 404 || err.response.status === 500)) {
         Toast.show('Lost connection to the server');
         this.setState({ loading: false });
         return;
       }
-      console.error(err.response);
-      Toast.show(err.response.data);
+      if (err.response && err.response.data && err.response.data.msg) {
+        Toast.show(err.response.data);
+      }
+      this.setState({ loading: false });
     }
   }
 
@@ -71,3 +87,21 @@ export default class Register extends React.Component {
   }
 
 }
+
+Register.propTypes = {
+  navigation: PropTypes.object.isRequired, // eslint-disable-line
+  receiveToken: PropTypes.func.isRequired,
+  receiveUser: PropTypes.func.isRequired,
+};
+
+
+const mapDispatchToProps = (dispatch) => {
+  const { receiveToken } = TokenRedux.Creators;
+  const { receiveUser } = UserRedux.Creators;
+  return {
+    receiveToken: token => dispatch(receiveToken(token)),
+    receiveUser: user => dispatch(receiveUser(user)),
+  };
+};
+
+export default connect(null, mapDispatchToProps)(Register);
