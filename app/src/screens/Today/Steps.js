@@ -2,6 +2,7 @@ import React from 'react';
 import { View } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
+import { init } from '../../config/GeolocationTracking';
 import WithHeader from '../../shared/HoC/WithHeader';
 import DefaultBackground from '../../shared/DefaultBackground';
 import ProgressPie from './ProgressPie';
@@ -32,7 +33,9 @@ class TodaySteps extends React.PureComponent {
   };
 
   componentDidMount() {
-    sync(2, 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1MjM2MzgxNDYsIm5iZiI6MTUyMzYzODE0NiwianRpIjoiY2QwMmFhZTAtYjJkYy00YTllLTkwZmItZjNlZTQ5NjI0ZWNiIiwiZXhwIjoxNTIzNjM5MDQ2LCJpZGVudGl0eSI6MiwiZnJlc2giOmZhbHNlLCJ0eXBlIjoiYWNjZXNzIn0.ubUlqYKBczkpFI-2ynTNpHcXMWRJ-JZkiWispIKZ7DM');
+    // first screen after login, start tracking
+    init();
+    sync();
   }
 
   render() {
