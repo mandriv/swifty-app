@@ -40,7 +40,7 @@
 	<key>NSHealthUpdateUsageDescription</key>
 	<string>Share workout data with other apps.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
+	<string>We use your location to track distance of your strolls</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Catamaran-Black.ttf</string>
