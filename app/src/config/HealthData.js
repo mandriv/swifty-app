@@ -2,7 +2,8 @@ import AppleHealthKit from 'rn-apple-healthkit';
 import { Platform } from 'react-native';
 import moment from 'moment';
 
-const APPLE_PERMS = AppleHealthKit.Constants.Permissions;
+export const APPLE_PERMS = AppleHealthKit.Constants.Permissions;
+export const STEPS_PER_CALORIE = 20;
 
 export const AppleHealthKitOptions = {
   permissions: {
@@ -12,16 +13,6 @@ export const AppleHealthKitOptions = {
     write: [],
   },
 };
-
-
-export const getTodayISO = () => {
-  const dateFormat = 'DD/MM/YYYY';
-  const todayStr = moment().format(dateFormat);
-  return moment(todayStr, dateFormat).toISOString();
-};
-
-export const STEPS_PER_CALORIE = 20;
-
 
 export const init = () => {
   if (Platform.OS === 'ios') {
