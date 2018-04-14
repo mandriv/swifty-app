@@ -7,6 +7,7 @@ import DefaultBackground from '../../shared/DefaultBackground';
 import ProgressPie from './ProgressPie';
 import Stats from './Stats';
 import styles from './styles';
+import sync from '../../services/sync';
 
 const data = {
   current: 'steps',
@@ -29,6 +30,10 @@ class TodaySteps extends React.PureComponent {
     title: 'Steps',
     tabBarIcon: ({ tintColor }) => (<Icon name="md-walk" size={25} color={tintColor} />),
   };
+
+  componentDidMount() {
+    sync(2, 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1MjM2MzgxNDYsIm5iZiI6MTUyMzYzODE0NiwianRpIjoiY2QwMmFhZTAtYjJkYy00YTllLTkwZmItZjNlZTQ5NjI0ZWNiIiwiZXhwIjoxNTIzNjM5MDQ2LCJpZGVudGl0eSI6MiwiZnJlc2giOmZhbHNlLCJ0eXBlIjoiYWNjZXNzIn0.ubUlqYKBczkpFI-2ynTNpHcXMWRJ-JZkiWispIKZ7DM');
+  }
 
   render() {
     return (
