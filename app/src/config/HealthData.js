@@ -7,7 +7,6 @@ export const AppleHealthKitOptions = {
   permissions: {
     read: [
       APPLE_PERMS.StepCount, // steps
-      APPLE_PERMS.ActiveEnergyBurned, // calories
     ],
     write: [],
   },
