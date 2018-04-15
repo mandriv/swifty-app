@@ -1,27 +1,27 @@
 import React from 'react';
 import Icon from 'react-native-vector-icons/Ionicons';
 
-import Today from '.';
+import Map from '.';
 import WithHeader from '../../shared/HoC/WithHeader';
 
-class TodaySteps extends React.PureComponent {
+class MapToday extends React.PureComponent {
 
   static navigationOptions = {
-    title: 'Today\'s activity',
+    title: 'Map - today',
     tabBarLabel: 'Today',
-    drawerLabel: 'Today',
+    drawerLabel: 'Map',
     tabBarIcon: ({ tintColor }) => (<Icon name="md-walk" size={25} color={tintColor} />),
   };
 
   render() {
+    const data = [];
     return (
-      <Today
-        current="steps"
-        unit="steps"
+      <Map
+        data={data}
       />
     );
   }
 
 }
 
-export default WithHeader(TodaySteps, 'Today\'s steps');
+export default WithHeader(MapToday, 'Map - today');

@@ -1,27 +1,26 @@
 import React from 'react';
 import Icon from 'react-native-vector-icons/Ionicons';
 
-import Today from '.';
+import Leaderboard from '.';
 import WithHeader from '../../shared/HoC/WithHeader';
 
-class TodaySteps extends React.PureComponent {
+class LeaderboardSteps extends React.PureComponent {
 
   static navigationOptions = {
-    title: 'Today\'s activity',
-    tabBarLabel: 'Today',
-    drawerLabel: 'Today',
+    title: 'Steps',
+    drawerLabel: 'Leaderboard',
     tabBarIcon: ({ tintColor }) => (<Icon name="md-walk" size={25} color={tintColor} />),
   };
 
   render() {
+    const data = [];
     return (
-      <Today
-        current="steps"
-        unit="steps"
+      <Leaderboard
+        data={data}
       />
     );
   }
 
 }
 
-export default WithHeader(TodaySteps, 'Today\'s steps');
+export default WithHeader(LeaderboardSteps, 'Leaderboard');

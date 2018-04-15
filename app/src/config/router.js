@@ -11,8 +11,13 @@ import TodayAverageSpeedScreen from '../screens/Today/AverageSpeed';
 import ProfileScreen from '../screens/Profile';
 import MainSettingsScreen from '../screens/Settings/Main';
 import ModifyGoalsSettingsScreen from '../screens/Settings/ModifyGoals';
-import LeaderboardScreen from '../screens/Leaderboard';
-import MapScreen from '../screens/Map';
+import LeaderboardStepsScreen from '../screens/Leaderboard/Steps';
+import LeaderboardDistanceScreen from '../screens/Leaderboard/Distance';
+import LeaderboardCaloriesScreen from '../screens/Leaderboard/Calories';
+import MapTodayScreen from '../screens/Map/Today';
+import MapThisWeekScreen from '../screens/Map/ThisWeek';
+import MapThisMonthScreen from '../screens/Map/ThisMonth';
+import MapAnytimeScreen from '../screens/Map/Anytime';
 // other
 import withInit from '../screens/Splash/withInit';
 import { primaryLight, secondaryLight, offWhite, primary } from '../config/colours';
@@ -66,6 +71,49 @@ export const TodayTabs = TabNavigator({
   },
 });
 
+export const MapTabs = TabNavigator({
+  Today: {
+    screen: MapTodayScreen,
+  },
+  ThisWeek: {
+    screen: MapThisWeekScreen,
+  },
+  ThisMonth: {
+    screen: MapThisMonthScreen,
+  },
+  Anytime: {
+    screen: MapAnytimeScreen,
+  },
+}, {
+  swipeEnabled: true,
+  tabBarOptions: {
+    activeTintColor: secondaryLight,
+    activeBackgroundColor: primary,
+    inactiveTintColor: offWhite,
+    inactiveBackgroundColor: primary,
+  },
+});
+
+export const LeaderboardTabs = TabNavigator({
+  Steps: {
+    screen: LeaderboardStepsScreen,
+  },
+  Distance: {
+    screen: LeaderboardDistanceScreen,
+  },
+  Calories: {
+    screen: LeaderboardCaloriesScreen,
+  },
+}, {
+  swipeEnabled: true,
+  tabBarOptions: {
+    activeTintColor: secondaryLight,
+    activeBackgroundColor: primary,
+    inactiveTintColor: offWhite,
+    inactiveBackgroundColor: primary,
+  },
+});
+
 export const SettingsStack = StackNavigator({
   MainSettings: {
     screen: MainSettingsScreen,
@@ -81,12 +129,8 @@ export const SettingsStack = StackNavigator({
 
 export const AppDrawer = DrawerNavigator({
   Today: TodayTabs,
-  Map: {
-    screen: MapScreen,
-  },
-  Leaderboard: {
-    screen: LeaderboardScreen,
-  },
+  Map: MapTabs,
+  Leaderboard: LeaderboardTabs,
   Profile: {
     screen: ProfileScreen,
   },
