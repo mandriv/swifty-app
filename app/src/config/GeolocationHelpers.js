@@ -25,13 +25,16 @@ export const getTodaysDistance = async () => {
 export const getTodaysAverageSpeed = async () => {
   try {
     const dataStr = await AsyncStorage.getItem('geolocation');
-    console.log(dataStr);
     if (dataStr === null) return 0;
     const data = JSON.parse(dataStr);
-    console.log(data);
     const todays = getTodaysLocations(data);
     if (todays.length === 0) return 0;
-    const total = todays.reduce((acc, loc) => acc + loc.speed, 0);
+    const total = todays.reduce((acc, loc) => {
+      if (loc.speed > 0) {
+        return acc + loc.speed;
+      }
+      return acc;
+    }, 0);
     return total / todays.length;
   } catch (err) {
     console.log(err); // eslint-disable-line
