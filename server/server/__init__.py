@@ -19,7 +19,7 @@ def static_file_serving(path):
 
 
 # db
-app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URI')
+app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URI', 'sqlite:///../sql')
 app.config['SECRET_KEY'] = 'evenmoresecretthanthis'
 
 db = SQLAlchemy(app)
@@ -35,3 +35,4 @@ jwt = JWTManager(app)
 import server.auth_routes
 import server.stat_routes
 import server.user_routes
+import server.geolocation_routes

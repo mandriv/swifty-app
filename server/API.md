@@ -22,15 +22,6 @@ in [brackets] - role required
 
 * `GET /api/users` - retrieves all users [admin]
 * `GET /api/users/:id` - retrieves user by id [any - admin, own - user, admin]
-
-* `GET /api/users/:id/tracking-data` - returns steps, calories, distance and average speed [any - admin, own - user, admin]
-  * `?from` - retrieves data only from specific date (format TBD)
-  * `?to` - retrieves data only to specific date
-  * `?dist-unit` - "km" or "mi" - default "km"
-  * `?speed-unit` - "km/h" or "mi/h" - default "km/h"
-* `GET /api/users/:id/geolocation` - returns geolocation data for user [any - admin, own - user, admin]
-  * `?from` - retrieves data only from specific date (format TBD)
-  * `?to` - retrieves data only to specific date
 * `GET /api/users/:id/todays-percentile` - returns users percentile for today's activity [any - admin, own - user, admin]
 * `POST /api/users` - creates new user NEED ALL THREE FIELD [anonymous, user, admin]
     * username
@@ -53,6 +44,7 @@ in [brackets] - role required
     * calories <- for calories data
     * distance <- distance for data 
     * avarage_speed <- guess :0
+* `GET /api/stats/leaderboard` retrives the leaderboard
 
 #### /auth
 * `POST /auth` - returns updated JWT and user object [anonymous]
@@ -60,22 +52,10 @@ in [brackets] - role required
     * username <- send the username
     * password <- send the password
 
-#### /leaderboards
-* `GET /leaderboards/steps` - returns users leaderboard in steps [anonymous]
-query params:
-  * `?from` - retrieves data only from specific date (format TBD)
-  * `?to` - retrieves data only to specific date
-* `GET /leaderboards/calories` - returns leaderboard in calories [anonymous]
-query params:
-  * `?from` - retrieves data only from specific date (format TBD)
-  * `?to` - retrieves data only to specific date
-* `GET /leaderboards/distance` - returns leaderboard in distance [anonymous]
-query params:
-  * `?from` - retrieves data only from specific date (format TBD)
-  * `?to` - retrieves data only to specific date
-  * `?unit` - "km" or "mi" - default "km"
-* `GET /leaderboards/average-speed` - returns leaderboard in average-speed [anonymous]
-query params:
-  * `?from` - retrieves data only from specific date (format TBD)
-  * `?to` - retrieves data only to specific date
-  * `?unit` - "km/h" or "mi/h" - default "km/h"
+#### /geolocation
+* `GET /api/geolocation/:id` retrives today locations points for given user
+* `POST /api/geolocation/:id` submit new location data
+    * lang <- needed
+    * long <- neede
+
+
