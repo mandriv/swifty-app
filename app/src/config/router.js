@@ -67,7 +67,7 @@ export const TodayTabs = TabNavigator({
 });
 
 export const SettingsStack = StackNavigator({
-  Main: {
+  MainSettings: {
     screen: MainSettingsScreen,
   },
   ModifyGoals: {

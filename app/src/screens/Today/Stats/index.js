@@ -63,6 +63,6 @@ export default class Stats extends React.PureComponent {
 Stats.propTypes = {
   diff: PropTypes.number.isRequired,
   centile: PropTypes.number.isRequired,
-  goal: PropTypes.number.isRequired,
+  goal: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
   unit: PropTypes.string.isRequired,
 };

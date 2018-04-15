@@ -77,7 +77,7 @@ class Today extends React.PureComponent {
             <View style={[styles.container]}>
               <Stats
                 unit={unit}
-                diff={today[current] - yesterday[current]}
+                diff={Math.round(Number(today[current]) - Number(yesterday[current]), 2)}
                 centile={centile}
                 goal={goals[current]}
               />
@@ -93,23 +93,13 @@ class Today extends React.PureComponent {
 Today.propTypes = {
   current: PropTypes.string.isRequired,
   unit: PropTypes.string.isRequired,
-  goals: PropTypes.shape({
-    steps: PropTypes.number.isRequired,
-    calories: PropTypes.number.isRequired,
-    distance: PropTypes.number.isRequired,
-    average_speed: PropTypes.number.isRequired,
-  }).isRequired,
+  goals: PropTypes.object.isRequired, // eslint-disable-line
 };
 
 const mapStateToProps = state => ({
   token: state.token,
   user: state.user,
-  goals: {
-    steps: 1000,
-    calories: 100,
-    distance: 2,
-    average_speed: 5,
-  },
+  goals: state.goals,
 });
 
 export default connect(mapStateToProps)(Today);

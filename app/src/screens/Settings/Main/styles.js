@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native';
 
-import { primaryLight, white, offWhite, rgba } from '../../../config/colours';
+import { white, offWhite, rgba } from '../../../config/colours';
 import { secondary } from '../../../config/fonts';
 
 const styles = StyleSheet.create({
