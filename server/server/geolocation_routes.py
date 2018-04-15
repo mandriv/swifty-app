@@ -31,7 +31,7 @@ def get_today_positions(user_id):
 
     return jsonify(locations = json_locaitons)
 
-@app.route('/api/geolocation/<int:user_id>', methods=['PUT'])
+@app.route('/api/geolocation/<int:user_id>', methods=['POST'])
 @jwt_required
 def update_locaton(user_id):
 
