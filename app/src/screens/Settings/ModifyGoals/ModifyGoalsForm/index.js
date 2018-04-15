@@ -53,11 +53,11 @@ export default class ModifyGoalsForm extends React.Component {
             label="Average speed [m/s]"
             keyboardType="numeric"
             onChangeText={(val) => {
-              this.props.setFieldValue('avarage_speed', val);
-              this.props.setFieldTouched('avarage_speed', true);
+              this.props.setFieldValue('average_speed', val);
+              this.props.setFieldTouched('average_speed', true);
             }}
-            value={this.props.values.avarage_speed.toString()}
-            error={this.props.touched.avarage_speed && this.props.errors.avarage_speed}
+            value={this.props.values.average_speed.toString()}
+            error={this.props.touched.average_speed && this.props.errors.average_speed}
             onSubmitEditing={this.props.submitForm}
           />
           <View style={styles.button}>

@@ -38,7 +38,7 @@ export const syncData = async (force = false) => {
     const { token, user } = state;
     let requestForm = {
       distance,
-      avarage_speed: speed,
+      average_speed: speed,
     };
     if (steps && calories) {
       requestForm = {

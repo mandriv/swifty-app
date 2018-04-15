@@ -33,7 +33,7 @@ export default class EnhacedModifyGoalsForm extends Component {
               .min(200, 'Minimal goal is 200 m a day')
               .integer()
               .required('Please enter new distance goal'),
-            avarage_speed: Yup
+            average_speed: Yup
               .number()
               .min(0.5, 'Minimal goal is 0.5 m/s a day')
               .required('Please enter new steps goal'),
@@ -56,7 +56,7 @@ EnhacedModifyGoalsForm.propTypes = {
     steps: PropTypes.number.isRequired,
     calories: PropTypes.number.isRequired,
     distance: PropTypes.number.isRequired,
-    avarage_speed: PropTypes.number.isRequired,
+    average_speed: PropTypes.number.isRequired,
   }).isRequired,
   onSubmit: PropTypes.func.isRequired,
 };
