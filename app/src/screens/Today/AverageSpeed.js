@@ -14,7 +14,7 @@ class TodayAverageSpeed extends React.PureComponent {
   render() {
     return (
       <Today
-        current="average_speed"
+        current="avarage_speed"
         unit="m/s"
       />
     );

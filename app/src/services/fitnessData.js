@@ -11,7 +11,7 @@ export const updateStats = (userId, token, data) =>
 
 export const getTodayStats = (userId, token) => {
   const year = moment().year().toString().padStart(2, '0');
-  const month = moment().month().toString().padStart(2, '0');
+  const month = (moment().month() + 1).toString().padStart(2, '0');
   const day = moment().date().toString().padStart(2, '0');
 
   const url = `${Config.HOST}/api/stats/${userId}/${year}/${month}/${day}`;
@@ -25,7 +25,7 @@ export const getTodayStats = (userId, token) => {
 export const getYesterdayStats = (userId, token) => {
   const yesterday = moment().subtract(1, 'day');
   const year = yesterday.year().toString().padStart(2, '0');
-  const month = yesterday.month().toString().padStart(2, '0');
+  const month = (yesterday.month() + 1).toString().padStart(2, '0');
   const day = yesterday.date().toString().padStart(2, '0');
 
   const url = `${Config.HOST}/api/stats/${userId}/${year}/${month}/${day}`;
