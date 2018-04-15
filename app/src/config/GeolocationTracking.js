@@ -8,7 +8,7 @@ export const geolocationConfig = {
   reset: true,
   // Gelocation config
   desiredAccuracy: 0,
-  distanceFilter: 1,
+  distanceFilter: 25,
   stationaryRadius: 25,
   desiredOdometerAccuracy: 10,
   activityRecognitionInterval: 0,
