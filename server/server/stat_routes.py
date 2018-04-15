@@ -21,6 +21,68 @@ def get_today_stats(user_id):
 
     return jsonify(stats=user_today_stats.to_json())
 
+@app.route('/api/stats/<int:user_id>/todays_percentile', methods=['GET'])
+@jwt_required
+def get_today_percentile(user_id):
+    current_user = User.query.get(get_jwt_identity())
+
+    if current_user.role == ROLE_USER and current_user.id != user_id:
+        return jsonify(msg="you are not an admin"), 404
+
+    today_date = datetime.now()
+    today_stats = UserStats.query.filter_by(date = date(today_date.year, today_date.month, today_date.day)).all()
+
+    today_stats.sort(key=lambda x: x.steps, reverse=True)
+
+    index = 0
+    while index < len(today_stats) and today_stats[index].user_id == user_id:
+        index += 1
+
+    steps_percentile = index / len(today_stats) * 100
+
+    today_stats.sort(key=lambda x: x.distance, reverse=True)
+
+    index = 0
+    while index < len(today_stats) and today_stats[index].user_id == user_id:
+        index += 1
+
+    distance_percentile = index / len(today_stats) * 100
+
+    today_stats.sort(key=lambda x: x.calories, reverse=True)
+    index = 0
+    while index < len(today_stats) and today_stats[index].user_id == user_id:
+        index += 1
+
+    calories_percentile = index / len(today_stats) * 100
+    today_stats.sort(key=lambda x: x.avarage_speed, reverse=True)
+
+    index = 0
+    while index < len(today_stats) and today_stats[index].user_id == user_id:
+        index += 1
+
+    avarage_speed_percentile = index / len(today_stats) * 100
+
+    return jsonify(avarage_speed_percentile = avarage_speed_percentile
+                   , steps_percentile = steps_percentile
+                   , calories_percentile = calories_percentile
+                   , distance_percentile = distance_percentile)
+
+@app.route('/api/stats/<int:user_id>/all', methods=['GET'])
+@jwt_required
+def get_all_stats(user_id):
+    current_user = User.query.get(get_jwt_identity())
+
+    if current_user.role == ROLE_USER and current_user.id != user_id:
+        return jsonify(msg="you are not an admin"), 404
+
+    records = UserStats.query.filter_by(user_id = user_id).all()
+
+    json_all_record = list()
+    for record in records:
+        json_all_record.append(record.to_json())
+
+    return jsonify(all_record = json_all_record)
+
 @app.route('/api/stats/<int:user_id>/<int:year>/<int:month>/<int:day>', methods=['GET'])
 @jwt_required
 def get_date_stats(user_id, year, month, day):

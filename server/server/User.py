@@ -2,6 +2,7 @@ import hashlib
 
 from server import db
 from server.UserStats import UserStats
+from server.Geolocation import Geolocation
 from server.util import JsonModel
 
 
@@ -16,6 +17,7 @@ class User(db.Model, JsonModel):
     bio = db.Column(db.TEXT, unique=False, nullable=True)
     role = db.Column(db.Integer, unique=False, nullable=False)
     user_stats = db.relationship('UserStats', backref='user', lazy=True, cascade="all, delete-orphan")
+    geolocation = db.relationship('Geolocation', backref='user', lazy=True, cascade="all, delete-orphan")
 
     def __repr__(self):
         return '<User %r>' % self.username
