@@ -2,11 +2,13 @@ import React from 'react';
 import { View } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
+import { init } from '../../config/GeolocationTracking';
 import WithHeader from '../../shared/HoC/WithHeader';
 import DefaultBackground from '../../shared/DefaultBackground';
 import ProgressPie from './ProgressPie';
 import Stats from './Stats';
 import styles from './styles';
+import sync from '../../services/sync';
 
 const data = {
   current: 'steps',
@@ -29,6 +31,12 @@ class TodaySteps extends React.PureComponent {
     title: 'Steps',
     tabBarIcon: ({ tintColor }) => (<Icon name="md-walk" size={25} color={tintColor} />),
   };
+
+  componentDidMount() {
+    // first screen after login, start tracking
+    init();
+    sync();
+  }
 
   render() {
     return (
