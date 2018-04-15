@@ -1,10 +1,27 @@
-import { store } from '../redux/store';
+import { AsyncStorage } from 'react-native';
+import moment from 'moment';
 
+import { store } from '../redux/store';
 import * as HealthData from '../config/HealthData';
 import * as Geo from '../config/GeolocationHelpers';
 import { updateStats } from './fitnessData';
 
-export const syncData = async () => {
+export const SYNC_THROTTLE = 1; // minute
+
+export const syncData = async (force = false) => {
+  try {
+    const lastSync = await AsyncStorage.getItem('lastSync');
+    if (lastSync !== null && force === false) {
+      const lastSyncMom = moment(lastSync);
+      if (!moment().isAfter(lastSyncMom.add(SYNC_THROTTLE, 'minutes'))) {
+        return;
+      }
+    }
+    await AsyncStorage.setItem('lastSync', moment().format());
+  } catch (err) {
+    console.log(err); // eslint-disable-line
+    return;
+  }
   try {
     const distance = await Geo.getTodaysDistance();
     const speed = await Geo.getTodaysAverageSpeed();
