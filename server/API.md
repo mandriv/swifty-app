@@ -12,7 +12,7 @@ Tables in DB:
 
 all the ones below will be one entry per day per user:
 
-* user_stats(`id`, `user_id`, `date`, `steps`, `calories`, `distance`, `avarage_speed`)
+* user_stats(`id`, `user_id`, `date`, `steps`, `calories`, `distance`, `average_speed`)
 
 
 ### API Endpoints:
@@ -43,7 +43,7 @@ in [brackets] - role required
     * steps <- for steps data
     * calories <- for calories data
     * distance <- distance for data 
-    * avarage_speed <- guess :0
+    * average_speed <- guess :0
 * `GET /api/stats/leaderboard` retrives the leaderboard
 
 #### /auth

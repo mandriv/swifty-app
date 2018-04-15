@@ -36,7 +36,7 @@ def upgrade():
     sa.Column('steps', sa.Integer(), nullable=False),
     sa.Column('calories', sa.Float(), nullable=False),
     sa.Column('distance', sa.Float(), nullable=False),
-    sa.Column('avarage_speed', sa.Float(), nullable=False),
+    sa.Column('average_speed', sa.Float(), nullable=False),
     sa.ForeignKeyConstraint(['user_id'], ['user.id'], ),
     sa.PrimaryKeyConstraint('id')
     )

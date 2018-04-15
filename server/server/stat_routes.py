@@ -38,7 +38,7 @@ def get_today_percentile(user_id):
     while index < len(today_stats) and today_stats[index].user_id == user_id:
         index += 1
 
-    steps_percentile = index / len(today_stats) * 100
+    steps_percentile = index / len(today_stats)-1 * 100
 
     today_stats.sort(key=lambda x: x.distance, reverse=True)
 
@@ -54,15 +54,15 @@ def get_today_percentile(user_id):
         index += 1
 
     calories_percentile = index / len(today_stats) * 100
-    today_stats.sort(key=lambda x: x.avarage_speed, reverse=True)
+    today_stats.sort(key=lambda x: x.average_speed, reverse=True)
 
     index = 0
     while index < len(today_stats) and today_stats[index].user_id == user_id:
         index += 1
 
-    avarage_speed_percentile = index / len(today_stats) * 100
+    average_speed_percentile = index / len(today_stats) * 100
 
-    return jsonify(avarage_speed_percentile = avarage_speed_percentile
+    return jsonify(average_speed_percentile = average_speed_percentile
                    , steps_percentile = steps_percentile
                    , calories_percentile = calories_percentile
                    , distance_percentile = distance_percentile)
@@ -109,7 +109,7 @@ def update_stats(user_id):
     user_today_stats = UserStats.query.filter_by(user_id = user_id, date = date(today_date.year, today_date.month, today_date.day)).first()
 
     if user_today_stats == None:
-        user_today_stats = UserStats(user_id = user_id, date = date(today_date.year, today_date.month, today_date.day), steps=0, calories=0, distance=0, avarage_speed=0 )
+        user_today_stats = UserStats(user_id = user_id, date = date(today_date.year, today_date.month, today_date.day), steps=0, calories=0, distance=0, average_speed=0 )
         db.session.add(user_today_stats)
         db.session.commit()
 
@@ -124,8 +124,8 @@ def update_stats(user_id):
     if 'distance' in stats_data:
         user_today_stats.distance = stats_data['distance']
 
-    if 'avarage_speed' in stats_data:
-        user_today_stats.avarage_speed = stats_data['avarage_speed']
+    if 'average_speed' in stats_data:
+        user_today_stats.average_speed = stats_data['average_speed']
 
     db.session.commit()
 
@@ -144,7 +144,7 @@ def increment_stats(user_id):
     user_today_stats = UserStats.query.filter_by(user_id = user_id, date = date(today_date.year, today_date.month, today_date.day)).first()
 
     if user_today_stats == None:
-        user_today_stats = UserStats(user_id = user_id, date = date(today_date.year, today_date.month, today_date.day), steps=0, calories=0, distance=0, avarage_speed=0 )
+        user_today_stats = UserStats(user_id = user_id, date = date(today_date.year, today_date.month, today_date.day), steps=0, calories=0, distance=0, average_speed=0 )
         db.session.add(user_today_stats)
         db.session.commit()
 
@@ -159,8 +159,8 @@ def increment_stats(user_id):
     if 'distance' in stats_data:
         user_today_stats.distance += stats_data['distance']
 
-    if 'avarage_speed' in stats_data:
-        user_today_stats.avarage_speed += stats_data['avarage_speed']
+    if 'average_speed' in stats_data:
+        user_today_stats.average_speed += stats_data['average_speed']
 
     db.session.commit()
 
