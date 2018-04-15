@@ -180,5 +180,10 @@ def leaderboard():
     for user in leaderboard_query:
         json_user_list.append({c: getattr(user, c) for c in user._fields})
 
-    return jsonify(leaderboard=json_user_list)
+    board = {}
+    board['steps'] = sorted(json_user_list,key=lambda k: k['steps'], reverse=True)
+    board['distance'] = sorted(json_user_list, key=lambda k: k['distance'], reverse=True)
+    board['calories'] = sorted(json_user_list, key=lambda k: k['calories'], reverse=True)
+
+    return jsonify(leaderboard=board)
 
