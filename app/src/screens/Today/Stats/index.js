@@ -9,7 +9,12 @@ import styles from './styles';
 export default class Stats extends React.PureComponent {
 
   render() {
-    const { diff, centile, goal, unit } = this.props;
+    const {
+      diff,
+      centile,
+      goal,
+      unit
+    } = this.props;
     return (
       <View style={[styles.root]}>
         <View style={styles.flex}>

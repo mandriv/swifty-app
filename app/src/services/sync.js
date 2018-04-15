@@ -31,7 +31,7 @@ export const syncData = async (force = false) => {
       steps = await HealthData.getTodaysSteps();
       calories = steps / HealthData.STEPS_PER_CALORIE;
     } catch (err) {
-      console.log(err);
+      console.log(err); // eslint-disable-line
     }
     // get token and user
     const state = store.getState();
@@ -47,11 +47,9 @@ export const syncData = async (force = false) => {
         calories,
       };
     }
-    console.log(requestForm);
-    const response = await updateStats(user.id, token, requestForm);
-    console.log(response); // eslint-disable-line
+    await updateStats(user.id, token, requestForm);
   } catch (error) {
-    console.log(error);
+    console.log(error); // eslint-disable-line
   }
 };
 

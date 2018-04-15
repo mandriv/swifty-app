@@ -6,6 +6,7 @@ import { PersistGate } from 'redux-persist/integration/react';
 import Splash from './screens/Splash';
 import { store, persistor } from './redux/store';
 import { RootNavigator } from './config/router';
+import { primary } from './config/colours';
 
 /*
   Root container
@@ -17,7 +18,7 @@ export default class Root extends React.PureComponent {
     return (
       <Provider store={store}>
         <PersistGate loading={<Splash />} persistor={persistor}>
-          <View style={styles.container}>
+          <View style={{ flex: 1, backgroundColor: primary }}>
             <StatusBar
               barStyle="light-content"
             />
@@ -29,9 +30,3 @@ export default class Root extends React.PureComponent {
   }
 
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-});
