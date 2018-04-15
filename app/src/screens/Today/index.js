@@ -87,7 +87,7 @@ class Today extends React.PureComponent {
               <Stats
                 unit={unit}
                 diff={Math.round(Number(today[current]) - Number(yesterday[current]), 2)}
-                centile={percentile[current]}
+                centile={Math.round(Number(percentile[current]), 2)}
                 goal={goals[current]}
               />
             </View>
