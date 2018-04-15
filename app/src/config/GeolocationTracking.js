@@ -35,7 +35,8 @@ export const init = () => {
 
 export const isWalking = (location) => {
   const { type, confidence } = location.activity;
-  return (type === 'on_foot' || type === 'walking' || type === 'running') && confidence > 50;
+  const rightType = (type === 'on_foot' || type === 'walking' || type === 'running' || type === 'unknown');
+  return rightType && confidence > 50;
 };
 
 export const onLocation = async (location) => {
