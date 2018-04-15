@@ -7,6 +7,7 @@ export const white = '#FCFCFC';
 export const offWhite = '#F2F2F2';
 export const black = '#000000';
 export const blackLight = '#222222';
+export const gray = '#E5E5E5';
 
 export const hexToRGB = (hex) => {
   const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
