@@ -1,7 +1,7 @@
 from sqlalchemy import and_
 
-from server import app
-from flask import jsonify
+from server import app, db
+from flask import jsonify, request
 from datetime import datetime, date
 from server.Geolocation import Geolocation
 
@@ -20,3 +20,16 @@ def get_today_positions(user_id):
         json_locaitons.append(location.to_json())
 
     return jsonify(locations = json_locaitons)
+
+@app.route('/api/geolocation/<int:user_id>', methods=['PUT'])
+def update_locaton(user_id):
+
+    location_info = request.get_json()
+
+    today_date = datetime.now()
+    location = Geolocation(user_id = user_id, long=location_info['long'], lat=location_info['lat'], date=today_date)
+
+    db.session.add(location)
+    db.session.commit()
+
+    return jsonify(msg='location saved', location=location.to_json())
