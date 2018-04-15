@@ -54,6 +54,7 @@ in [brackets] - role required
 
 #### /geolocation
 * `GET /api/geolocation/:id` retrives today locations points for given user
+* `GET /api/geolocation/:id/all` retrives all locations points for given user
 * `POST /api/geolocation/:id` submit new location data
     * lang <- needed
     * long <- neede
