@@ -35,3 +35,4 @@ jwt = JWTManager(app)
 import server.auth_routes
 import server.stat_routes
 import server.user_routes
+import server.geolocation_routes
