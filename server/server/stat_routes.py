@@ -38,7 +38,7 @@ def get_today_percentile(user_id):
     while index < len(today_stats) and today_stats[index].user_id == user_id:
         index += 1
 
-    steps_percentile = index / len(today_stats)-1 * 100
+    steps_percentile = index / (len(today_stats)-1) * 100
 
     today_stats.sort(key=lambda x: x.distance, reverse=True)
 
@@ -46,21 +46,21 @@ def get_today_percentile(user_id):
     while index < len(today_stats) and today_stats[index].user_id == user_id:
         index += 1
 
-    distance_percentile = index / len(today_stats) * 100
+    distance_percentile = index / (len(today_stats)-1) * 100
 
     today_stats.sort(key=lambda x: x.calories, reverse=True)
     index = 0
     while index < len(today_stats) and today_stats[index].user_id == user_id:
         index += 1
 
-    calories_percentile = index / len(today_stats) * 100
+    calories_percentile = index / (len(today_stats)-1) * 100
     today_stats.sort(key=lambda x: x.average_speed, reverse=True)
 
     index = 0
     while index < len(today_stats) and today_stats[index].user_id == user_id:
         index += 1
 
-    average_speed_percentile = index / len(today_stats) * 100
+    average_speed_percentile = index / (len(today_stats)-1) * 100
 
     return jsonify(average_speed_percentile = average_speed_percentile
                    , steps_percentile = steps_percentile
