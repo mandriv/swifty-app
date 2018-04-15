@@ -6,7 +6,6 @@ export const getTodaysDistance = async () => {
     const dataStr = await AsyncStorage.getItem('geolocation');
     if (dataStr === null) return 0;
     const data = JSON.parse(dataStr);
-    console.log(data); // eslint-disable-line
     const yesterdayLastLoc = getYesterdaysLastLocation(data);
     const mostRecentLoc = getMostRecentLocation(data);
     if (yesterdayLastLoc === null && mostRecentLoc === null) {
@@ -35,7 +34,8 @@ export const getTodaysAverageSpeed = async () => {
       }
       return acc;
     }, 0);
-    return total / todays.length;
+    const average = total / todays.length;
+    return Math.round(average, 2);
   } catch (err) {
     console.log(err); // eslint-disable-line
     return 0;

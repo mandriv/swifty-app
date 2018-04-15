@@ -28,7 +28,6 @@ export const init = () => {
   BackgroundGeolocation.on('location', onLocation, onError);
   // ready? start!
   BackgroundGeolocation.ready(geolocationConfig, (geoLocState) => {
-    console.log(geoLocState);
     if (!geoLocState.enabled) BackgroundGeolocation.start();
   });
 };

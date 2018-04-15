@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { View, Text } from 'react-native';
-import { ProgressCircle }  from 'react-native-svg-charts';
+import { ProgressCircle } from 'react-native-svg-charts';
 
 import { primaryLight, secondaryLight } from '../../../config/colours';
 import styles from './styles';
@@ -9,12 +9,12 @@ import styles from './styles';
 export default class ProgressPie extends React.PureComponent {
 
   getLabel = () => {
-    switch (this.props.data.current) {
+    switch (this.props.current) {
       case 'steps':
       case 'distance':
       case 'calories':
-        return this.props.data.current;
-      case 'averageSpeed':
+        return this.props.current;
+      case 'average_speed':
         return 'average speed';
       default:
         return '';
@@ -22,8 +22,7 @@ export default class ProgressPie extends React.PureComponent {
   }
 
   render() {
-    const { data, goals } = this.props;
-    const { current } = data;
+    const { data, goals, current } = this.props;
     const goal = goals[current];
     const progress = data[current] / goal;
     return (
@@ -50,7 +49,8 @@ export default class ProgressPie extends React.PureComponent {
 
 ProgressPie.propTypes = {
   data: PropTypes.object.isRequired, // eslint-disable-line
-  goals: PropTypes.object.isRequired,
+  goals: PropTypes.object.isRequired, // eslint-disable-line
+  current: PropTypes.string.isRequired,
 };
 
 ProgressPie.defaultProps = {

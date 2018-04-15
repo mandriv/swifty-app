@@ -1,7 +1,7 @@
 import React from 'react';
-import { View, Text } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
+import Today from '.';
 import WithHeader from '../../shared/HoC/WithHeader';
 
 class TodayCalories extends React.PureComponent {
@@ -13,12 +13,13 @@ class TodayCalories extends React.PureComponent {
 
   render() {
     return (
-      <View>
-        <Text>Today Calories</Text>
-      </View>
+      <Today
+        current="calories"
+        unit="kcal"
+      />
     );
   }
 
 }
 
-export default WithHeader(TodayCalories, 'Today');
+export default WithHeader(TodayCalories, 'Today\'s calories');
