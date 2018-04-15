@@ -7,7 +7,9 @@ import WithHeader from '../../shared/HoC/WithHeader';
 class TodaySteps extends React.PureComponent {
 
   static navigationOptions = {
-    title: 'Steps',
+    title: 'Today\'s activity',
+    tabBarLabel: 'Today',
+    drawerLabel: 'Today',
     tabBarIcon: ({ tintColor }) => (<Icon name="md-walk" size={25} color={tintColor} />),
   };
 

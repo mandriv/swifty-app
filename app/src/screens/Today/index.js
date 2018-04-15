@@ -19,7 +19,12 @@ class Today extends React.PureComponent {
   state = {
     today: {},
     yesterday: {},
-    centile: 0,
+    percentile: {
+      steps: 0,
+      calories: 0,
+      distance: 0,
+      avarage_speed: 0,
+    },
     loading: true,
   };
 
@@ -37,12 +42,16 @@ class Today extends React.PureComponent {
       const today = response.data.stats;
       const response2 = await FitnessData.getYesterdayStats(user.id, token);
       const yesterday = response2.data.stats;
-      // const response3 = await FitnessData.getTodaysPercentile(user.id, token);
-      // console.log(response3);
+      const response3 = await FitnessData.getTodaysPercentile(user.id, token);
       this.setState({
         today,
         yesterday,
-        centile: 76,
+        percentile: {
+          steps: response3.data.steps_percentile,
+          calories: response3.data.calories_percentile,
+          distance: response3.data.distance_percentile,
+          avarage_speed: response3.data.avarage_speed_percentile,
+        },
         loading: false,
       });
     } catch (err) {
@@ -57,7 +66,7 @@ class Today extends React.PureComponent {
     const {
       today,
       yesterday,
-      centile,
+      percentile,
       loading,
     } = this.state;
     return (
@@ -78,7 +87,7 @@ class Today extends React.PureComponent {
               <Stats
                 unit={unit}
                 diff={Math.round(Number(today[current]) - Number(yesterday[current]), 2)}
-                centile={centile}
+                centile={percentile[current]}
                 goal={goals[current]}
               />
             </View>
