@@ -37,7 +37,16 @@ export const getYesterdayStats = (userId, token) => {
 };
 
 export const getTodaysPercentile = (userId, token) => {
-  const url = `${Config.HOST}/api/users/${userId}/todays-percentile`;
+  const url = `${Config.HOST}/api/stats/${userId}/todays_percentile`;
+  return axios.get(url, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+};
+
+export const getLeaderboard = (token) => {
+  const url = `${Config.HOST}/api/stats/leaderboard`;
   return axios.get(url, {
     headers: {
       Authorization: `Bearer ${token}`,
