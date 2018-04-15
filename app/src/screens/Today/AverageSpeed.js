@@ -1,9 +1,8 @@
 import React from 'react';
-import { View, Text } from 'react-native';
 import Icon from 'react-native-vector-icons/SimpleLineIcons';
 
+import Today from '.';
 import WithHeader from '../../shared/HoC/WithHeader';
-
 
 class TodayAverageSpeed extends React.PureComponent {
 
@@ -14,12 +13,13 @@ class TodayAverageSpeed extends React.PureComponent {
 
   render() {
     return (
-      <View>
-        <Text>Today AverageSpeed</Text>
-      </View>
+      <Today
+        current="average_speed"
+        unit="m/s"
+      />
     );
   }
 
 }
 
-export default WithHeader(TodayAverageSpeed, 'Today');
+export default WithHeader(TodayAverageSpeed, 'Today\'s average speed');

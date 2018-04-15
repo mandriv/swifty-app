@@ -1,7 +1,7 @@
 import React from 'react';
-import { View, Text } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
+import Today from '.';
 import WithHeader from '../../shared/HoC/WithHeader';
 
 
@@ -14,12 +14,13 @@ class TodayDistance extends React.PureComponent {
 
   render() {
     return (
-      <View>
-        <Text>Today Distance</Text>
-      </View>
+      <Today
+        current="distance"
+        unit="m"
+      />
     );
   }
 
 }
 
-export default WithHeader(TodayDistance, 'Today');
+export default WithHeader(TodayDistance, 'Today\'s distance');
