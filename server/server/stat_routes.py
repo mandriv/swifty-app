@@ -21,6 +21,22 @@ def get_today_stats(user_id):
 
     return jsonify(stats=user_today_stats.to_json())
 
+@app.route('/api/stats/<int:user_id>/all', methods=['GET'])
+@jwt_required
+def get_all_stats(user_id):
+    current_user = User.query.get(get_jwt_identity())
+
+    if current_user.role == ROLE_USER and current_user.id != user_id:
+        return jsonify(msg="you are not an admin"), 404
+
+    records = UserStats.query.filter_by(user_id = user_id).all()
+
+    json_all_record = list()
+    for record in records:
+        json_all_record.append(record.to_json())
+
+    return jsonify(all_record = json_all_record)
+
 @app.route('/api/stats/<int:user_id>/<int:year>/<int:month>/<int:day>', methods=['GET'])
 @jwt_required
 def get_date_stats(user_id, year, month, day):
