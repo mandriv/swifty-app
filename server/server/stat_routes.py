@@ -22,8 +22,13 @@ def get_today_stats(user_id):
     return jsonify(stats=user_today_stats.to_json())
 
 @app.route('/api/stats/<int:user_id>/todays_percentile', methods=['GET'])
+@jwt_required
 def get_today_percentile(user_id):
+    current_user = User.query.get(get_jwt_identity())
 
+    if current_user.role == ROLE_USER and current_user.id != user_id:
+        return jsonify(msg="you are not an admin"), 404
+    
     today_date = datetime.now()
     today_stats = UserStats.query.filter_by(date = date(today_date.year, today_date.month, today_date.day)).all()
 
