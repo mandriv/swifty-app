@@ -1878,6 +1878,7 @@
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = F3BQYE7K87;
 				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
 					"$(PROJECT_DIR)/../node_modules/react-native-background-geolocation/ios/**",
 					"$(PROJECT_DIR)/../node_modules/react-native-background-fetch/ios/**",
 				);
@@ -1916,6 +1917,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = F3BQYE7K87;
 				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
 					"$(PROJECT_DIR)/../node_modules/react-native-background-geolocation/ios/**",
 					"$(PROJECT_DIR)/../node_modules/react-native-background-fetch/ios/**",
 				);
