@@ -23,7 +23,7 @@ class Today extends React.PureComponent {
       steps: 0,
       calories: 0,
       distance: 0,
-      avarage_speed: 0,
+      average_speed: 0,
     },
     loading: true,
   };
@@ -50,7 +50,7 @@ class Today extends React.PureComponent {
           steps: response3.data.steps_percentile,
           calories: response3.data.calories_percentile,
           distance: response3.data.distance_percentile,
-          avarage_speed: response3.data.avarage_speed_percentile,
+          average_speed: response3.data.average_speed_percentile,
         },
         loading: false,
       });
@@ -87,7 +87,7 @@ class Today extends React.PureComponent {
               <Stats
                 unit={unit}
                 diff={Math.round(Number(today[current]) - Number(yesterday[current]), 2)}
-                centile={percentile[current]}
+                centile={Math.round(Number(percentile[current]), 2)}
                 goal={goals[current]}
               />
             </View>

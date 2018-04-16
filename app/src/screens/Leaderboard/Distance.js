@@ -13,10 +13,9 @@ class LeaderboardDistance extends React.PureComponent {
   };
 
   render() {
-    const data = [];
     return (
       <Leaderboard
-        data={data}
+        type="distance"
       />
     );
   }

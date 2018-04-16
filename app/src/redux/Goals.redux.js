@@ -4,7 +4,7 @@ export const INITIAL_STATE = {
   steps: 5000,
   calories: 250,
   distance: 4000,
-  avarage_speed: 2,
+  average_speed: 2,
 };
 
 export const { Types, Creators } = createActions({

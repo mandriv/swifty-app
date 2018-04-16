@@ -14,7 +14,7 @@ export default class ProgressPie extends React.PureComponent {
       case 'distance':
       case 'calories':
         return this.props.current;
-      case 'avarage_speed':
+      case 'average_speed':
         return 'average speed';
       default:
         return '';
