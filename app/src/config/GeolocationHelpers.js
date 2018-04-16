@@ -75,5 +75,17 @@ export const getYesterdaysLastLocation = (locations) => {
   return yesterdayLastLoc;
 };
 
-export const getTodaysLocations = locations =>
+export const getAllLocations = async () => {
+  const dataStr = await AsyncStorage.getItem('geolocation');
+  if (dataStr === null) return [];
+  return JSON.parse(dataStr);
+};
+
+export const getTodaysLocations = (locations = []) =>
   locations.filter(loc => moment(loc.timestamp).isSame(moment(), 'day'));
+
+export const getThisWeekLocations = (locations = []) =>
+  locations.filter(loc => moment(loc.timestamp).isSame(moment(), 'week'));
+
+export const getThisMonthLocations = (locations = []) =>
+  locations.filter(loc => moment(loc.timestamp).isSame(moment(), 'month'));

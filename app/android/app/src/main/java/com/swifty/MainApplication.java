@@ -13,6 +13,7 @@ import com.facebook.soloader.SoLoader;
 import com.lugg.ReactNativeConfig.ReactNativeConfigPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
 import com.react.rnspinkit.RNSpinkitPackage;
+import com.airbnb.android.react.maps.MapsPackage;
 
 import java.util.Arrays;
 import java.util.List;
@@ -29,13 +30,14 @@ public class MainApplication extends Application implements ReactApplication {
         protected List<ReactPackage> getPackages() {
             return Arrays.<ReactPackage>asList(
                     new MainReactPackage(),
-            new RNBackgroundFetchPackage(),
-            new RNBackgroundGeolocation(),
+                    new RNBackgroundFetchPackage(),
+                    new RNBackgroundGeolocation(),
                     new SvgPackage(),
                     new VectorIconsPackage(),
                     new RNSpinkitPackage(),
                     new LinearGradientPackage(),
-                    new ReactNativeConfigPackage()
+                    new ReactNativeConfigPackage(),
+                    new MapsPackage()
             );
         }
 
