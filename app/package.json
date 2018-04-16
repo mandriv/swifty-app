@@ -19,7 +19,7 @@
   "scripts": {
     "start": "react-native start",
     "android": "react-native run-android",
-    "ios": "react-native run-ios",
+    "ios": "react-native run-ios --project-path ./ios",
     "test": "jest",
     "rm_cache": "rm -fr $TMPDIR/react-*"
   },
@@ -43,6 +43,7 @@
     "react-native-config": "^0.11.5",
     "react-native-display": "^1.0.8",
     "react-native-linear-gradient": "^2.4.0",
+    "react-native-maps": "^0.21.0",
     "react-native-simple-toast": "^0.0.8",
     "react-native-spinkit": "^1.1.1",
     "react-native-svg": "^6.3.1",
