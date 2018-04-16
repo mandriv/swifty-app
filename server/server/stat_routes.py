@@ -32,15 +32,21 @@ def get_today_percentile(user_id):
     today_date = datetime.now()
     today_stats = UserStats.query.filter_by(date = date(today_date.year, today_date.month, today_date.day)).all()
 
-    today_stats.sort(key=lambda x: x.steps, reverse=True)
+    if len(today_stats) == 1:
+        return jsonify(average_speed_percentile = 0
+                   , steps_percentile = 0
+                   , calories_percentile = 0
+                   , distance_percentile = 0)
+
+    today_stats.sort(key=lambda x: x.steps, reverse=False)
 
     index = 0
-    while index < len(today_stats) and today_stats[index].user_id == user_id:
+    while index < len(today_stats) and today_stats[index].user_id != user_id:
         index += 1
 
     steps_percentile = index / (len(today_stats)-1) * 100
 
-    today_stats.sort(key=lambda x: x.distance, reverse=True)
+    today_stats.sort(key=lambda x: x.distance, reverse=False)
 
     index = 0
     while index < len(today_stats) and today_stats[index].user_id == user_id:
@@ -48,13 +54,13 @@ def get_today_percentile(user_id):
 
     distance_percentile = index / (len(today_stats)-1) * 100
 
-    today_stats.sort(key=lambda x: x.calories, reverse=True)
+    today_stats.sort(key=lambda x: x.calories, reverse=False)
     index = 0
     while index < len(today_stats) and today_stats[index].user_id == user_id:
         index += 1
 
     calories_percentile = index / (len(today_stats)-1) * 100
-    today_stats.sort(key=lambda x: x.average_speed, reverse=True)
+    today_stats.sort(key=lambda x: x.average_speed, reverse=False)
 
     index = 0
     while index < len(today_stats) and today_stats[index].user_id == user_id:
