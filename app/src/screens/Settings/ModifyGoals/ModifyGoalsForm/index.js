@@ -14,6 +14,7 @@ export default class ModifyGoalsForm extends React.Component {
       <ScrollView style={styles.container}>
         <View style={styles.content}>
           <Input
+            light
             label="Steps"
             keyboardType="numeric"
             onChangeText={(val) => {
@@ -25,6 +26,7 @@ export default class ModifyGoalsForm extends React.Component {
             onSubmitEditing={() => this.caloriesInput.focus()}
           />
           <Input
+            light
             inputRef={input => this.caloriesInput = input} // eslint-disable-line
             label="Calories [kcal]"
             keyboardType="numeric"
@@ -37,6 +39,7 @@ export default class ModifyGoalsForm extends React.Component {
             onSubmitEditing={() => this.distanceInput.focus()}
           />
           <Input
+            light
             inputRef={input => this.distanceInput = input} // eslint-disable-line
             label="Distance [m]"
             keyboardType="numeric"
@@ -49,6 +52,7 @@ export default class ModifyGoalsForm extends React.Component {
             onSubmitEditing={() => this.speedInput.focus()}
           />
           <Input
+            light
             inputRef={input => this.speedInput = input} // eslint-disable-line
             label="Average speed [m/s]"
             keyboardType="numeric"

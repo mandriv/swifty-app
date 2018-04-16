@@ -9,9 +9,11 @@ import styles from './styles';
 export default class Input extends React.PureComponent {
 
   render() {
+    const { light } = this.props;
+    const labelStyles = light ? [styles.label, styles.labelLight] : styles.label;
     return (
       <View style={styles.root}>
-        <Text style={styles.label}>{this.props.label}</Text>
+        <Text style={labelStyles}>{this.props.label}</Text>
         <View style={styles.inputAndIcon}>
           {
             this.props.icon &&
@@ -35,10 +37,15 @@ export default class Input extends React.PureComponent {
 }
 
 Input.propTypes = {
+  light: PropTypes.bool,
   label: PropTypes.string.isRequired,
   icon: PropTypes.string,
   error: PropTypes.string,
   inputRef: PropTypes.func,
+};
+
+Input.defaultProps = {
+  light: false,
 };
 
 Input.defaultProps = {

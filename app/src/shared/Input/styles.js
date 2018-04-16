@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { blackLight, white, rgba } from '../../config/colours';
+import { blackLight, white, rgba, offWhite } from '../../config/colours';
 import { secondary } from '../../config/fonts';
 
 const styles = StyleSheet.create({
@@ -10,6 +10,9 @@ const styles = StyleSheet.create({
     fontFamily: secondary(),
     color: blackLight,
     fontSize: 12,
+  },
+  labelLight: {
+    color: offWhite,
   },
   inputAndIcon: {
     flexDirection: 'row',
