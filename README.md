@@ -1,3 +1,5 @@
+![Poster](https://raw.githubusercontent.com/mandriv/swifty-app/master/screenshots/poster.png "Poster")
+
 # Swifty
 Swifty is a cross-platform mobile app that allows you to track your strolls. 
 This repository contains source code for both the client app and server.
